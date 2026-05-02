@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sourav Verma's blog — writing on AI products, HealthTech, and the builder PM mindset.">
+  <title>Blog — Sourav Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .blog-listing-card {
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-xl);
+      padding: 1.75rem;
+      background: var(--c-bg);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-listing-card:hover { box-shadow: var(--sh-l); transform: translateY(-4px); border-color: #c4b5fd; }
+    .blog-listing-card h3 { font-size: 1.1rem; font-weight: 700; line-height: 1.4; margin: 0.75rem 0; }
+    .blog-listing-card p  { font-size: 0.875rem; color: var(--c-muted); line-height: 1.65; flex-grow: 1; margin-bottom: 1.25rem; }
+    .blog-listing-meta { display: flex; align-items: center; gap: 1rem; font-size: 0.78rem; color: var(--c-subtle); flex-wrap: wrap; margin-bottom: 1rem; }
+    .blog-listing-meta span { display: inline-flex; align-items: center; gap: 4px; }
+    .read-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 600; color: var(--c-primary); }
+    .read-link:hover { text-decoration: underline; }
+    .listing-grid-blog { grid-template-columns: repeat(3, 1fr); }
+    @media(max-width:900px){ .listing-grid-blog { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:580px){ .listing-grid-blog { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="site-nav scrolled" id="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">SV<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#builds">Builds</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="resume.pdf" download class="btn-nav-cta"><i class="fas fa-download"></i> Download CV</a>
+    </div>
+    <button class="nav-hamburger"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html#about">About</a>
+  <a href="index.html#builds">Builds</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- Hero -->
+<div class="listing-hero">
+  <div class="listing-hero-inner">
+    <div class="section-eyebrow" style="background:rgba(124,58,237,0.2);color:#a78bfa;margin-bottom:1rem">✍️ Writing</div>
+    <h1 class="display-lg">From the Blog</h1>
+    <p>AI products, HealthTech, growth, and the builder PM mindset. Posted 2–3× per week.</p>
+  </div>
+</div>
+
+<!-- Filter Bar -->
+<div class="listing-filter-bar">
+  <button class="filter-tab active" data-filter="all">All</button>
+  <button class="filter-tab" data-filter="ai">AI Products</button>
+  <button class="filter-tab" data-filter="growth">Growth</button>
+  <button class="filter-tab" data-filter="strategy">HealthTech</button>
+  <button class="filter-tab" data-filter="mindset">PM Mindset</button>
+</div>
+
+<!-- Listing Grid -->
+<div class="listing-grid listing-grid-blog" style="padding-bottom:5rem">
+
+  <div class="blog-listing-card animate" data-tags="ai">
+    <span class="blog-card-category cat-ai">🤖 AI Products</span>
+    <h3>From 16 Hours to 10 Seconds: How We Built an AI Claims Engine</h3>
+    <div class="blog-listing-meta">
+      <span><i class="fas fa-calendar-alt"></i> Apr 28, 2025</span>
+      <span><i class="fas fa-clock"></i> 7 min read</span>
+    </div>
+    <p>The real story of building a straight-through processing adjudication system — what the problem actually was, why rule-based AI beat a pure ML approach, and the lessons that apply to any AI product build.</p>
+    <a href="blog/ai-claims-engine.html" class="read-link">Read more <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <div class="blog-listing-card animate animate-delay-1" data-tags="growth">
+    <span class="blog-card-category cat-growth">📈 Growth</span>
+    <h3>Building for Habits, Not Just Usage: Lessons from a 20K-User Health Platform</h3>
+    <div class="blog-listing-meta">
+      <span><i class="fas fa-calendar-alt"></i> Apr 21, 2025</span>
+      <span><i class="fas fa-clock"></i> 8 min read</span>
+    </div>
+    <p>Why most health apps fail at engagement, and how applying the habit loop — with a HealthTech twist — helped us hit 40% MoM growth on a CDM platform with zero paid acquisition.</p>
+    <a href="blog/cdm-habits.html" class="read-link">Read more <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <div class="blog-listing-card animate animate-delay-2" data-tags="mindset">
+    <span class="blog-card-category cat-mindset">⚡ PM Mindset</span>
+    <h3>Why Every PM Should Build Prototypes — Even If They'll Never Ship</h3>
+    <div class="blog-listing-meta">
+      <span><i class="fas fa-calendar-alt"></i> Apr 14, 2025</span>
+      <span><i class="fas fa-clock"></i> 6 min read</span>
+    </div>
+    <p>Prototyping changed how I think about product. Not because prototypes become products, but because building forces precision that slides never can. Here's the workflow I use.</p>
+    <a href="blog/pm-builder-mindset.html" class="read-link">Read more <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <div class="blog-listing-card animate animate-delay-1" data-tags="strategy">
+    <span class="blog-card-category cat-strategy">🏥 HealthTech</span>
+    <h3>Product-Led Growth in Insurance: A Playbook That Actually Worked</h3>
+    <div class="blog-listing-meta">
+      <span><i class="fas fa-calendar-alt"></i> Apr 7, 2025</span>
+      <span><i class="fas fa-clock"></i> 9 min read</span>
+    </div>
+    <p>Insurance is not supposed to be a PLG category. Yet we scaled a B2C health marketplace to ₹48 Cr ARR with an experimentation framework and zero traditional sales. Here's the playbook.</p>
+    <a href="blog/plg-insurance.html" class="read-link">Read more <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <div class="blog-listing-card animate animate-delay-2" data-tags="ai">
+    <span class="blog-card-category cat-product">🚀 AI Products</span>
+    <h3>The 0→1 AI Product Playbook: What Nobody Tells You</h3>
+    <div class="blog-listing-meta">
+      <span><i class="fas fa-calendar-alt"></i> Mar 31, 2025</span>
+      <span><i class="fas fa-clock"></i> 10 min read</span>
+    </div>
+    <p>Launching AI products is different from launching regular software. The validation loops are different, the failure modes are different, and the team dynamics are different. Here's what I've learned from two 0→1 AI product builds.</p>
+    <a href="blog/zero-to-one.html" class="read-link">Read more <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer style="background:var(--c-hero);padding:2rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)">
+  <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;display:inline-flex;align-items:center;gap:6px">
+    <i class="fas fa-arrow-left"></i> Back to Portfolio
+  </a>
+</footer>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

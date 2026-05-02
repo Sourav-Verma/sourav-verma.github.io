@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 0→1 AI Product Playbook — Sourav Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body style="background:var(--c-bg-slate)">
+
+<nav class="site-nav scrolled">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">SV<span>.</span></a>
+    <div class="post-nav-title">The 0→1 AI Product Playbook</div>
+    <a href="../blog.html" class="post-nav-back" style="margin-left:auto"><i class="fas fa-arrow-left"></i> All Posts</a>
+  </div>
+</nav>
+
+<article class="post-content">
+  <div class="post-hero-category cat-product">🚀 AI Products</div>
+
+  <h1 class="post-title">The 0→1 AI Product Playbook: What Nobody Tells You</h1>
+
+  <div class="post-meta-row">
+    <span><i class="fas fa-calendar-alt"></i> March 31, 2025</span>
+    <span><i class="fas fa-clock"></i> 10 min read</span>
+    <span><i class="fas fa-tag"></i> AI, 0-to-1, Product Strategy</span>
+  </div>
+
+  <div class="post-body">
+
+    <p>I've done two 0→1 AI product builds from scratch: an AI adjudication engine and a chronic disease management platform. Before that, I spent years automating business processes at Swiggy. None of that fully prepared me for what building AI products actually involves.</p>
+
+    <p>The standard product playbook — define the problem, validate with users, build an MVP, iterate — is still correct at the conceptual level. But the execution is different enough that following generic PM advice on AI products will lead you into specific traps. Here's what those traps are, and what I've learned to do instead.</p>
+
+    <h2>Trap 1: Confusing "AI" with "Model"</h2>
+
+    <p>The first mistake I see PMs make with AI products is treating "AI" as a synonym for "machine learning model." This leads to questions like "what model should we use?" before anyone has clearly defined what the system needs to do.</p>
+
+    <p>In both my AI builds, the decision that determined success was not which model to use. It was: <strong>what decisions does this system need to make, and how do we know when it's made them correctly?</strong></p>
+
+    <p>For the adjudication engine, the decision was: "approve, deny, or escalate this claim." The correctness criterion was: "match the decision an experienced adjudicator would make." Everything else — architecture, model choice, training approach — was downstream of that clarity.</p>
+
+    <div class="post-callout">
+      <div class="post-callout-label">🔑 Framework</div>
+      <p>Before building any AI product, write down: (1) What decision(s) is the AI making? (2) What data does it use to make them? (3) How will you know if it got it right? If you can't answer all three, you're not ready to build.</p>
+    </div>
+
+    <h2>Trap 2: The Validation Loop Is Completely Different</h2>
+
+    <p>Normal product validation: show users a prototype, see if they understand it, measure task completion, iterate on the UX.</p>
+
+    <p>AI product validation: build a working model, expose it to real data, measure accuracy against ground truth, discover that your ground truth was wrong, redefine ground truth, repeat.</p>
+
+    <p>This is a fundamentally different loop — and it's slower. In normal product development, you can validate a hypothesis in a week with a Figma prototype. In AI product development, you often can't validate a hypothesis without labeled training data that takes weeks to collect and annotate.</p>
+
+    <p>The implication: AI products need a longer runway from hypothesis to validation. Teams that plan AI sprints the same way they plan feature sprints consistently overestimate velocity.</p>
+
+    <h3>What actually helps: invest heavily in data labeling infrastructure</h3>
+
+    <p>The most valuable engineering investment in an AI product's early life is not the model. It's tooling that makes it fast and reliable to label data, evaluate outputs, and monitor distribution shifts. We spent two months before our first model was trained building internal tools for adjusters to label claims and tag model errors. That infrastructure paid off for the entire lifecycle of the product.</p>
+
+    <h2>Trap 3: "Just Use an LLM" Is Often the Wrong Answer</h2>
+
+    <p>This one is counterintuitive in 2025, when LLMs are genuinely amazing and accessible. But a raw LLM is a probabilistic reasoning engine with no ground truth, no memory, no domain constraints, and no auditability.</p>
+
+    <p>In a domain like insurance or healthcare, these are disqualifying properties for core decisions. You cannot tell a regulator "the LLM decided." You cannot debug an LLM error trace in a post-incident review. And an LLM that hallucinates coverage terms in a health insurance context is a serious liability problem.</p>
+
+    <p>The right use of LLMs in domain-specific AI products is often as a <strong>component</strong>, not a foundation:</p>
+
+    <ul>
+      <li>Use an LLM to extract structured data from unstructured documents (policy PDFs, doctor notes)</li>
+      <li>Use a deterministic rule engine on that structured data to make actual decisions</li>
+      <li>Use an LLM to generate human-readable explanations of those decisions</li>
+    </ul>
+
+    <p>This architecture gives you the power of LLMs for the things they're good at, while keeping the decision layer deterministic and auditable.</p>
+
+    <h2>Trap 4: Feature Creep Has Different Physics in AI</h2>
+
+    <p>In normal software, adding a feature increases scope linearly. In AI, adding a capability can increase complexity non-linearly — because every new input variable, every new decision type, every new edge case potentially affects the behavior of every other part of the system.</p>
+
+    <p>We learned this on the CDM platform. We started with three condition types: diabetes, hypertension, and obesity. Adding PCOS as a fourth condition meant revisiting training data across all conditions, because the correlations between conditions were affecting multi-condition users in unexpected ways.</p>
+
+    <p>The principle: AI products need tighter scope discipline than regular software. "We can always add it later" is not true the same way it is for features. Later is more expensive in AI because the dataset and model have to be rebuilt, not just the UX.</p>
+
+    <h2>Trap 5: Trust Is a Product Feature</h2>
+
+    <p>This is the most important thing I'd tell my earlier self.</p>
+
+    <p>In both products, the defining challenge wasn't technical. It was getting the humans who had to trust the system's decisions to actually trust them.</p>
+
+    <p>For the adjudication engine: insurance adjusters who'd been making these decisions for years. For the CDM platform: patients managing chronic conditions they lived with every day.</p>
+
+    <p>Both groups were right to be skeptical. AI systems do make mistakes. The question is how you design for that reality.</p>
+
+    <blockquote>
+      Trust in an AI product is earned through transparency, not performance. Users who understand why the system made a decision trust it more than users who saw a higher accuracy rate but don't know how it works.
+    </blockquote>
+
+    <p>Practically, this means: build explainability into the product from day one, not as an afterthought. Show users the signals the system used. Give them a clear path to correct errors. Make it obvious when the system is uncertain.</p>
+
+    <h2>What I'd Do Differently</h2>
+
+    <ul>
+      <li><strong>Define the error taxonomy before building.</strong> What kinds of errors are acceptable vs. unacceptable? False positives vs. false negatives have different costs. Get stakeholder agreement on this before any model work begins.</li>
+      <li><strong>Shadow mode before production.</strong> Run any AI decision system in parallel with the existing process before it touches real outcomes. 6 weeks of shadow mode saved us months of post-production fire-fighting.</li>
+      <li><strong>Hire a domain expert as a permanent team member.</strong> Not a consultant, not an advisory role. Someone who can be in sprint planning and tell you when the model is making a technically valid but operationally wrong decision.</li>
+      <li><strong>Plan for model refresh from day one.</strong> Data distributions shift. The model that works today will degrade. This is not optional maintenance — it's core product work. Budget for it accordingly.</li>
+    </ul>
+
+    <h2>The Honest Summary</h2>
+
+    <p>AI products are worth building. The leverage is real — a well-designed AI system can do at scale what previously required armies of people. But the path to that leverage is more rigorous, slower, and more dependent on domain knowledge than most PM playbooks acknowledge.</p>
+
+    <p>The PMs who build great AI products are the ones who treat the AI as a system to be designed, not a capability to be plugged in. They obsess over the decision logic, the training data quality, the error modes, and the trust architecture. Not just the model performance metric.</p>
+
+    <p>That rigor is unsexy. It's also the only thing that works.</p>
+
+  </div>
+
+  <hr style="margin:3rem 0;border-color:var(--c-border)">
+  <div style="display:flex;align-items:center;gap:1rem">
+    <img src="../img/profile.png" alt="Sourav Verma" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--c-border)">
+    <div>
+      <div style="font-weight:700;font-size:0.9rem">Sourav Verma</div>
+      <div style="font-size:0.8rem;color:var(--c-muted)">Product Manager — AI &amp; New Initiatives at Visit Health · <a href="../index.html" style="color:var(--c-primary)">Portfolio</a></div>
+    </div>
+  </div>
+</article>
+
+<footer style="background:var(--c-hero);padding:2rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)">
+  <a href="../blog.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;display:inline-flex;align-items:center;gap:6px">
+    <i class="fas fa-arrow-left"></i> Back to Blog
+  </a>
+</footer>
+</body>
+</html>

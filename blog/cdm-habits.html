@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building for Habits, Not Just Usage — Sourav Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body style="background:var(--c-bg-slate)">
+
+<nav class="site-nav scrolled">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">SV<span>.</span></a>
+    <div class="post-nav-title">Building for Habits, Not Just Usage</div>
+    <a href="../blog.html" class="post-nav-back" style="margin-left:auto"><i class="fas fa-arrow-left"></i> All Posts</a>
+  </div>
+</nav>
+
+<article class="post-content">
+  <div class="post-hero-category cat-growth">📈 Growth</div>
+
+  <h1 class="post-title">Building for Habits, Not Just Usage: Lessons from a 20K-User Health Platform</h1>
+
+  <div class="post-meta-row">
+    <span><i class="fas fa-calendar-alt"></i> April 21, 2025</span>
+    <span><i class="fas fa-clock"></i> 8 min read</span>
+    <span><i class="fas fa-tag"></i> Growth, HealthTech, Engagement</span>
+  </div>
+
+  <div class="post-body">
+
+    <p>Most health apps die in week two. The user downloads, completes onboarding, logs their first data point — and never returns. Not because the product is bad. Because health behavior change is genuinely hard, and most apps are designed for one-time action, not sustained habits.</p>
+
+    <p>When I was building the Chronic Disease Management (CDM) platform at Visit Health, I was acutely aware of this pattern. We had 0 users. We needed to get to meaningful scale — and to make it actually work for people managing real conditions like diabetes and hypertension. Vanity metrics wouldn't cut it. Neither would a feature list.</p>
+
+    <p>Here's what we built, what worked, and what didn't.</p>
+
+    <h2>Why Most Health Apps Fail at Retention</h2>
+
+    <p>The standard health app model is: give users a way to log things, show them graphs, send them reminders. This model is correct about what users need at a feature level. It's wrong about the psychology.</p>
+
+    <p>Health logging is intrinsically low-reward and high-effort. Logging your blood sugar is tedious. The graph it produces doesn't feel immediately meaningful unless you understand A1C trends. And reminder notifications — the classic engagement hack — are the first things users disable when they feel pestered.</p>
+
+    <div class="post-callout">
+      <div class="post-callout-label">📊 The Data</div>
+      <p>In early testing, we saw 68% of users who completed onboarding log at least once in week 1. By week 3, that number dropped to 12%. This is the classic "engagement cliff" in health apps.</p>
+    </div>
+
+    <p>The problem wasn't our reminders or our graph design. The problem was that we were optimizing for <em>usage</em> — opening the app, logging, viewing — rather than <em>habit formation</em>.</p>
+
+    <h2>The Habit Loop Framework — with a HealthTech Twist</h2>
+
+    <p>BJ Fogg's work on habit design comes down to three components: a cue (trigger), a routine (the behavior), and a reward (the reason the brain files this as "worth repeating"). The famous "Tiny Habits" insight is that motivation is unreliable — you have to design the behavior to be easier than the friction, not depend on willpower to overcome it.</p>
+
+    <p>For chronic disease management, we applied this with a few modifications:</p>
+
+    <h3>1. Context-anchored cues, not time-based reminders</h3>
+
+    <p>Instead of "10 AM reminder: log blood sugar," we shifted to event-triggered nudges: "You have a meal appointment in 30 minutes — would you like to log your pre-meal reading?" This feels like a service, not an alarm.</p>
+
+    <p>We integrated with calendar apps, medication reminders, and diagnostic lab orders. When we had a context signal — a doctor's appointment, a pharmacy refill, a reported symptom — we used it as a cue. When we didn't, we stayed quiet.</p>
+
+    <h3>2. The minimum viable log</h3>
+
+    <p>We obsessed over reducing friction on the core logging action. At one point, our blood glucose log was 4 taps. We got it to 1 — a single number input with smart defaults and auto-timestamp.</p>
+
+    <p>We also introduced "passive logging" for users who connected wearables, letting the platform infer context without requiring manual input. Engagement among connected users was 3.4× higher than among manual loggers.</p>
+
+    <h3>3. Meaningful rewards, not gamification theater</h3>
+
+    <p>Badges and streaks are engagement proxies. They don't mean the user's health is improving. We made a deliberate decision to tie rewards to <strong>health outcomes</strong>, not app activity.</p>
+
+    <p>"Your HbA1c has been in the healthy range for 3 weeks" is a more meaningful reward than a "7-day streak" badge — even though it requires waiting longer to deliver. We found that users who received outcome-based notifications had significantly better 90-day retention than those receiving only activity-based acknowledgment.</p>
+
+    <h2>The Persona Architecture</h2>
+
+    <p>One of the most valuable decisions we made early was to segment users by <strong>engagement archetype</strong> rather than medical condition. Our key personas:</p>
+
+    <ul>
+      <li><strong>The Anxious Optimizer:</strong> Logs everything, wants detailed analytics, highly responsive to data-driven insights</li>
+      <li><strong>The Compliant Reluctant:</strong> Managing condition because they have to, not because they want to — highest dropout risk</li>
+      <li><strong>The Community Seeker:</strong> Highly responsive to social proof, group challenges, peer comparison</li>
+      <li><strong>The Delegator:</strong> Manages health through caregivers or family — product needs to support the caregiver as much as the patient</li>
+    </ul>
+
+    <p>The same feature can hurt one persona while helping another. Streaks work brilliantly for Optimizers and actively damage Reluctants (who feel shame when they break a streak). We learned to surface different UX paths based on persona signals.</p>
+
+    <h2>What 40% MoM Growth Actually Meant</h2>
+
+    <p>The 40% month-over-month growth wasn't paid acquisition. It was almost entirely referral — users recommending the platform to family members who shared conditions, and corporate HR managers rolling it out after seeing early engagement data.</p>
+
+    <p>The most powerful growth lever turned out to be what we called the "health report card" — a monthly personalized summary a user could share with their doctor or family. It was designed as a clinical tool, but users were sharing it voluntarily on WhatsApp family groups. We hadn't designed for this. We just noticed it in analytics and got out of its way.</p>
+
+    <blockquote>
+      The best growth feature we shipped in the first year was one we didn't plan: a shareable health summary. We noticed users screenshotting it and built a real share flow. That single change drove a 22% increase in new user referrals.
+    </blockquote>
+
+    <h2>The Lesson That Stuck</h2>
+
+    <p>The engagement cliff isn't a UX problem. It's a motivation design problem. You cannot UX your way to retention if the core behavior doesn't have inherent meaning to the user.</p>
+
+    <p>For chronic disease management, that meaning exists — people want to manage their health. But it gets buried under friction, anxiety, and the tyranny of the streak. Our job was to unbury it: reduce the effort, connect the action to an outcome the user actually cares about, and give them a reason to come back that doesn't depend on habit energy they don't have at 8 AM on a Tuesday.</p>
+
+    <p>We got to 20K active users not because we built a better reminder system. We got there because we built something that felt like it was on the user's side.</p>
+
+  </div>
+
+  <hr style="margin:3rem 0;border-color:var(--c-border)">
+  <div style="display:flex;align-items:center;gap:1rem">
+    <img src="../img/profile.png" alt="Sourav Verma" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--c-border)">
+    <div>
+      <div style="font-weight:700;font-size:0.9rem">Sourav Verma</div>
+      <div style="font-size:0.8rem;color:var(--c-muted)">Product Manager — AI &amp; New Initiatives at Visit Health · <a href="../index.html" style="color:var(--c-primary)">Portfolio</a></div>
+    </div>
+  </div>
+</article>
+
+<footer style="background:var(--c-hero);padding:2rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)">
+  <a href="../blog.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;display:inline-flex;align-items:center;gap:6px">
+    <i class="fas fa-arrow-left"></i> Back to Blog
+  </a>
+</footer>
+</body>
+</html>

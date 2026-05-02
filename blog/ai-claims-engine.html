@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From 16 Hours to 10 Seconds — Sourav Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body style="background:var(--c-bg-slate)">
+
+<nav class="site-nav scrolled">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">SV<span>.</span></a>
+    <div class="post-nav-title">From 16 Hours to 10 Seconds</div>
+    <a href="../blog.html" class="post-nav-back" style="margin-left:auto"><i class="fas fa-arrow-left"></i> All Posts</a>
+  </div>
+</nav>
+
+<article class="post-content">
+  <div class="post-hero-category cat-ai">🤖 AI Products</div>
+
+  <h1 class="post-title">From 16 Hours to 10 Seconds: How We Built an AI Claims Engine</h1>
+
+  <div class="post-meta-row">
+    <span><i class="fas fa-calendar-alt"></i> April 28, 2025</span>
+    <span><i class="fas fa-clock"></i> 7 min read</span>
+    <span><i class="fas fa-tag"></i> AI, InsurTech, Product</span>
+  </div>
+
+  <div class="post-body">
+
+    <p>When I joined Visit Health, the cashless insurance claim approval process took an average of <strong>16 hours</strong>. For a policyholder standing at a hospital reception desk needing surgery, 16 hours isn't a minor inconvenience. It's a crisis.</p>
+
+    <p>Eighteen months later, that number was under <strong>10 seconds</strong> — with 70% of claims processed entirely without human intervention. Here's how we got there, and what I learned about building AI products in a domain where the stakes are genuinely high.</p>
+
+    <h2>The Real Problem (It Wasn't Speed)</h2>
+
+    <p>The temptation when you hear "16 hours" is to think the problem is latency — that we needed faster servers or more agents. That framing was wrong, and chasing it would have gotten us nowhere.</p>
+
+    <p>The actual problem was <strong>decision-making under incomplete information</strong>. Insurance adjusters were making judgment calls on claims that had ambiguous documentation, edge-case policy language, or missing supporting records. Most of the delay wasn't processing — it was waiting: waiting for a document, waiting for a supervisor sign-off, waiting because the policy said "at the discretion of the adjudicator."</p>
+
+    <div class="post-callout">
+      <div class="post-callout-label">💡 Key Insight</div>
+      <p>When we mapped the 16-hour journey, we found that actual adjudicator "thinking time" averaged 12 minutes per claim. The rest was queue time, waiting for documents, and escalation overhead.</p>
+    </div>
+
+    <p>This reframing changed everything. The question became: <em>which claims are actually ambiguous, and which ones just feel ambiguous because of process debt?</em></p>
+
+    <h2>Why Rule-Based AI Beat Pure ML</h2>
+
+    <p>My engineering background made me want to build a neural net. My product judgment said no.</p>
+
+    <p>Here's the thing about insurance: the domain has very clear rules encoded in policy documents. A Vitamin D test is covered under preventive wellness. An MRI for a pre-existing condition has a waiting period. A day-care procedure has a defined cost cap. These aren't fuzzy patterns — they're deterministic rules buried in PDFs.</p>
+
+    <p>A pure ML approach would have required thousands of labeled examples to learn what a policy document could have just told it directly. More importantly, when the model got something wrong — and it would — we'd have no explainability. An insurance company cannot tell a policyholder "the model decided."</p>
+
+    <p>The architecture we built was a <strong>hybrid rule-extraction + decision engine</strong>:</p>
+
+    <ol>
+      <li><strong>Policy Parser:</strong> LLM-powered extraction of coverage rules from policy documents, structured into a queryable rule store</li>
+      <li><strong>Claim Classifier:</strong> ML model that tagged incoming claims by type, procedure, and policy category</li>
+      <li><strong>Rule Engine:</strong> Deterministic decision layer that matched classified claims against extracted rules</li>
+      <li><strong>Escalation Logic:</strong> Any claim the engine wasn't confident about (under a threshold) routed to a human adjudicator — but now with pre-populated context</li>
+    </ol>
+
+    <h2>The 70% Number</h2>
+
+    <p>Seventy percent straight-through processing sounds like a nice round number. It wasn't chosen — it emerged. When we plotted claim complexity against volume, we found that roughly 70–75% of all claims were what I started calling "obvious claims" — ones where the rule was clear, the documentation was complete, and the right decision was not ambiguous.</p>
+
+    <p>These are the claims where a human adjudicator adds zero value. They're rubber-stamps, and having a human rubber-stamp them at scale was expensive, slow, and demoralizing for the adjudicators who actually wanted to use their judgment on hard cases.</p>
+
+    <blockquote>
+      The goal wasn't to replace adjusters. It was to give them only the cases that actually needed a human. When we shipped, adjudicator job satisfaction went up because they stopped spending 80% of their time on claims that didn't need them.
+    </blockquote>
+
+    <h2>What Nearly Killed the Project</h2>
+
+    <p>The hardest part wasn't the technology. It was getting <strong>trust alignment</strong> across three groups: the insurance companies (who worried about liability), the hospital networks (who worried about payment delays), and our own leadership (who worried about false positives).</p>
+
+    <p>The move that unlocked this was a shadow mode deployment. We ran the engine in parallel with human adjudicators for 6 weeks, comparing outputs without letting the engine's decision affect claims. The match rate was 94.2%. That number, more than any demo, was what got sign-off.</p>
+
+    <h2>What I'd Tell Myself at the Start</h2>
+
+    <ul>
+      <li><strong>Define "correct" before you build anything.</strong> In insurance, "correct" has a legal definition, an operational definition, and a customer perception definition. They're not the same.</li>
+      <li><strong>Build for auditability from day one.</strong> Every automated decision needs to be explainable — not just for regulatory reasons, but for your own debugging.</li>
+      <li><strong>Shadow mode is not optional.</strong> It's the only honest way to build trust with domain experts who've been burned by software promises before.</li>
+      <li><strong>Your P(escalation) is a product decision, not a model parameter.</strong> How often the engine asks for human help is a policy choice with business consequences. Don't let the data science team set it alone.</li>
+    </ul>
+
+    <p>The 10-second claim approval is a headline metric. The more meaningful number, to me, is the adjudicator who told me she now actually enjoys her job — because every claim that lands on her desk is genuinely hard, and she gets to use her expertise.</p>
+
+    <p>That's what "70% straight-through processing" actually means.</p>
+
+  </div>
+
+  <hr style="margin:3rem 0;border-color:var(--c-border)">
+  <div style="display:flex;align-items:center;gap:1rem">
+    <img src="../img/profile.png" alt="Sourav Verma" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--c-border)">
+    <div>
+      <div style="font-weight:700;font-size:0.9rem">Sourav Verma</div>
+      <div style="font-size:0.8rem;color:var(--c-muted)">Product Manager — AI &amp; New Initiatives at Visit Health · <a href="../index.html" style="color:var(--c-primary)">Portfolio</a></div>
+    </div>
+  </div>
+</article>
+
+<footer style="background:var(--c-hero);padding:2rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)">
+  <a href="../blog.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;display:inline-flex;align-items:center;gap:6px">
+    <i class="fas fa-arrow-left"></i> Back to Blog
+  </a>
+</footer>
+</body>
+</html>

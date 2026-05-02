@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLG in Insurance — Sourav Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body style="background:var(--c-bg-slate)">
+
+<nav class="site-nav scrolled">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">SV<span>.</span></a>
+    <div class="post-nav-title">PLG in Insurance</div>
+    <a href="../blog.html" class="post-nav-back" style="margin-left:auto"><i class="fas fa-arrow-left"></i> All Posts</a>
+  </div>
+</nav>
+
+<article class="post-content">
+  <div class="post-hero-category cat-strategy">🏥 HealthTech</div>
+
+  <h1 class="post-title">Product-Led Growth in Insurance: A Playbook That Actually Worked</h1>
+
+  <div class="post-meta-row">
+    <span><i class="fas fa-calendar-alt"></i> April 7, 2025</span>
+    <span><i class="fas fa-clock"></i> 9 min read</span>
+    <span><i class="fas fa-tag"></i> PLG, HealthTech, Growth, Insurance</span>
+  </div>
+
+  <div class="post-body">
+
+    <p>If you'd told me three years ago that a B2C health insurance marketplace would be a product-led growth story, I'd have been skeptical. Insurance is traditionally sold, not bought. The trust barriers are high, the decision cycle is long, and the product experience is mostly invisible until something goes wrong.</p>
+
+    <p>And yet: we scaled our B2C healthcare marketplace to <strong>₹48 Cr ARR</strong> with no traditional sales force, almost entirely through product improvements and an experimentation framework that sounds boring but isn't.</p>
+
+    <p>Here's the playbook.</p>
+
+    <h2>First: Why Insurance Is a PLG-Adjacent Category</h2>
+
+    <p>True PLG — where the product sells itself through usage, like Slack or Notion — doesn't quite apply to insurance. The category has fundamental constraints: you can't "try before you buy" a policy, and the value is often only realized at a moment of crisis.</p>
+
+    <p>What we found instead was something I'd call <strong>benefit-utilization-led growth</strong>. When corporate employees actually use their insurance benefits — booking diagnostics, ordering medicines, doing teleconsults — two things happen:</p>
+
+    <ol>
+      <li>They trust the platform more (because it worked)</li>
+      <li>They tell their colleagues and family about it</li>
+    </ol>
+
+    <p>The growth lever wasn't the insurance product. It was the benefits experience around it. Our hypothesis became: <em>if we make it trivially easy for policyholders to get value from their coverage, growth will follow.</em></p>
+
+    <h2>The Marketplace Flywheel</h2>
+
+    <p>The core product architecture we built was what I internally called a Marketplace Flywheel — an integrated stack of medicines, diagnostics, and teleconsultations within a single health benefits experience.</p>
+
+    <p>The flywheel logic:</p>
+
+    <ul>
+      <li>A policyholder needs a diagnostic test → books it through Visit Health because it's covered</li>
+      <li>The test result connects to their health record</li>
+      <li>The health record surfaces a CDM recommendation or supplement suggestion</li>
+      <li>They order the supplement or book a consultation</li>
+      <li>The cycle repeats with higher engagement each time</li>
+    </ul>
+
+    <p>The key was that each interaction left a health data artifact — a test result, a consultation note, a medicine order — that made the next interaction more valuable. This is the PLG dynamic: the product becomes more useful as you use it more.</p>
+
+    <div class="post-callout">
+      <div class="post-callout-label">📊 Flywheel in Numbers</div>
+      <p>Users who had at least 3 different service types (e.g., diagnostics + medicines + teleconsult) had 4.2× higher 12-month retention than single-service users. The flywheel wasn't just a theory — it showed up in the cohort data.</p>
+    </div>
+
+    <h2>The Experimentation Framework</h2>
+
+    <p>The second pillar was disciplined experimentation. We ran A/B tests on everything — not in a "throw spaghetti at the wall" way, but with a prioritization framework tied to our North Star metric (GMV per active user).</p>
+
+    <p>Our test prioritization criteria:</p>
+
+    <ul>
+      <li><strong>Impact:</strong> How large is the potential GMV uplift if this test wins?</li>
+      <li><strong>Confidence:</strong> How confident are we in the hypothesis based on qualitative signals?</li>
+      <li><strong>Effort:</strong> How many engineering days does this take to instrument?</li>
+    </ul>
+
+    <p>This sounds like standard RICE, and it mostly is — but the HealthTech version has an additional filter: <strong>safety</strong>. Any experiment that could affect a user's healthcare decision gets an additional review gate. We learned this the hard way when an early search ranking experiment was suppressing a specific medicine category for reasons we didn't fully understand.</p>
+
+    <h3>The experiments that moved the needle</h3>
+
+    <p><strong>Discovery algorithm improvements:</strong> Shifting from a pure alphabetical/popularity sort to intent-signal-weighted ranking (what did users with similar profiles buy after a similar search?) drove a 23% improvement in add-to-cart rate for diagnostics.</p>
+
+    <p><strong>Coverage-first UX:</strong> Showing "covered under your policy" prominently in product listings — before price — reduced cart abandonment by 18% for corporate policyholders. People don't price-shop when they perceive something as free.</p>
+
+    <p><strong>Routing optimization for teleconsults:</strong> Matching users to specialists based on their health record profile (rather than availability alone) improved appointment completion rate by 31% and reduced re-booking significantly.</p>
+
+    <h2>The Partner Integration GTM</h2>
+
+    <p>One of our most impactful growth bets was the Tier-1 partner GTM — specifically the Lenskart and Titan Eye+ integrations that unlocked ₹35 Cr+ incremental ARR.</p>
+
+    <p>The insight was simple but non-obvious: people with corporate health insurance have vision benefits, but the experience of actually using those benefits was terrible. You'd need to get a form, call an insurer, submit receipts, wait for reimbursement. The friction made most people not bother.</p>
+
+    <p>We built a direct integration where the policyholder's benefit balance was visible at checkout, and the cashless settlement happened in real time. The insurer loved it (utilization went up, satisfaction went up). The partner loved it (conversion went up). The user loved it (friction went away).</p>
+
+    <p>This is product-led growth at the ecosystem level: the product creates so much value for every participant that expansion is self-reinforcing.</p>
+
+    <h2>What Didn't Work</h2>
+
+    <p>Honest accounting: two things we tried didn't work.</p>
+
+    <p><strong>Gamified "health streaks" for marketplace behavior.</strong> We tried applying CDM-style engagement mechanics to marketplace usage. It felt manipulative, and users noticed. The experiment was pulled after 3 weeks.</p>
+
+    <p><strong>Cross-sell recommendation carousels.</strong> Putting "you might also need X" suggestions in the cart flow looked good in theory. It decreased checkout completion rates. People were at the point of decision — they didn't want to think about new things. We removed it.</p>
+
+    <h2>The Core Lesson</h2>
+
+    <p>Insurance is a category where trust is the product. Not the policy document. Not the premium. The trust that when you need it, it will work.</p>
+
+    <p>Product-led growth in this context means: make the benefits tangible, make them easy to access, and make every interaction with the platform evidence that the trust is justified.</p>
+
+    <p>When you get that right, growth follows. Not because you found a clever hack, but because you built something that deserves to grow.</p>
+
+  </div>
+
+  <hr style="margin:3rem 0;border-color:var(--c-border)">
+  <div style="display:flex;align-items:center;gap:1rem">
+    <img src="../img/profile.png" alt="Sourav Verma" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--c-border)">
+    <div>
+      <div style="font-weight:700;font-size:0.9rem">Sourav Verma</div>
+      <div style="font-size:0.8rem;color:var(--c-muted)">Product Manager — AI &amp; New Initiatives at Visit Health · <a href="../index.html" style="color:var(--c-primary)">Portfolio</a></div>
+    </div>
+  </div>
+</article>
+
+<footer style="background:var(--c-hero);padding:2rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)">
+  <a href="../blog.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;display:inline-flex;align-items:center;gap:6px">
+    <i class="fas fa-arrow-left"></i> Back to Blog
+  </a>
+</footer>
+</body>
+</html>

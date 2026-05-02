@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Every PM Should Build Prototypes — Sourav Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500,600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body style="background:var(--c-bg-slate)">
+
+<nav class="site-nav scrolled">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">SV<span>.</span></a>
+    <div class="post-nav-title">Why PMs Should Build Prototypes</div>
+    <a href="../blog.html" class="post-nav-back" style="margin-left:auto"><i class="fas fa-arrow-left"></i> All Posts</a>
+  </div>
+</nav>
+
+<article class="post-content">
+  <div class="post-hero-category cat-mindset">⚡ PM Mindset</div>
+
+  <h1 class="post-title">Why Every PM Should Build Prototypes — Even If They'll Never Ship</h1>
+
+  <div class="post-meta-row">
+    <span><i class="fas fa-calendar-alt"></i> April 14, 2025</span>
+    <span><i class="fas fa-clock"></i> 6 min read</span>
+    <span><i class="fas fa-tag"></i> Product Management, Prototyping, Mindset</span>
+  </div>
+
+  <div class="post-body">
+
+    <p>I have three live prototypes on GitHub. None of them are production apps. None of them were built in engineering sprints. They were built by me, over weekends, to test an idea — and in two of three cases, they changed a product decision that would have otherwise been made on speculation.</p>
+
+    <p>This is my argument for why every PM should build prototypes, regardless of whether you have an engineering background.</p>
+
+    <h2>The Slide Deck Problem</h2>
+
+    <p>Here's what a product spec in a slide deck can't tell you: whether the flow actually makes sense when a human being is trying to use it under time pressure, with a noisy background, at 8 PM after a long day.</p>
+
+    <p>I don't mean "does the wireframe look good." I mean: does the interaction logic hold up? Is there a decision the user has to make that we assumed would be obvious but actually requires explanation? Is the happy path as obvious as we thought it was?</p>
+
+    <p>You find this out when you build. Not when you design, not when you write a PRD, and definitely not when you present a slide deck.</p>
+
+    <div class="post-callout">
+      <div class="post-callout-label">💡 Example</div>
+      <p>The Cashless Vision prototype (sourav-verma.github.io/cashless-vision-prototype-v2/) started as a 6-slide deck. When I built the actual flow, I discovered that the "wallet co-pay" step — which looked obvious on the slide — required three pieces of information the user wouldn't naturally have at hand. That discovery changed the spec before a single engineer touched it.</p>
+    </div>
+
+    <h2>What Prototyping Does for Your Thinking</h2>
+
+    <p>Building a prototype is a forcing function for specificity. Slides let you be vague. Code doesn't.</p>
+
+    <p>When you write a slide that says "user selects their benefit," you can leave open what "selects" means, what the options are, how they're presented, and what happens if nothing is available. When you build it, you have to make every single one of those decisions explicitly. And making them explicitly means you'll find the ones you hadn't thought through.</p>
+
+    <p>This is the actual value. Not the prototype itself — the clarity that building it forces.</p>
+
+    <h3>The three questions a prototype always answers</h3>
+
+    <ol>
+      <li><strong>What is the user's first question?</strong> The moment a user lands on a screen, they're asking: what is this, and what should I do? If your prototype doesn't answer that in under 3 seconds, your flow has a problem that a Figma mock won't surface.</li>
+      <li><strong>Where does the obvious path break?</strong> The happy path always looks fine. The prototype shows you where a user who isn't following your mental model gets confused.</li>
+      <li><strong>What decisions are we asking the user to make that we haven't explained?</strong> These are the silent assumptions embedded in your design. They're invisible in slides. They're unmissable in a working prototype.</li>
+    </ol>
+
+    <h2>But I'm Not an Engineer</h2>
+
+    <p>Fair. But you don't need to build a production-quality app. You need to build something that a person can click through.</p>
+
+    <p>The bar for a PM prototype is much lower than for engineering. You're not worried about performance, edge cases, error handling, or security. You need the happy path to work, with real content (not Lorem Ipsum), so someone can experience the flow.</p>
+
+    <p>Tools available to non-engineers today:</p>
+    <ul>
+      <li><strong>Figma with interactive prototyping:</strong> Good for flows that don't need real data</li>
+      <li><strong>Framer or Webflow:</strong> Good for landing page concepts and responsive experiences</li>
+      <li><strong>Single-file HTML/React:</strong> For PMs with some technical background — this is what I use. No build tools, no deployment complexity, just a file I can share via GitHub Pages in minutes.</li>
+      <li><strong>Claude / GPT + React:</strong> Describe the interaction in plain English, get working prototype code</li>
+    </ul>
+
+    <p>I'm not advocating for PMs to become engineers. I'm advocating for PMs to get comfortable enough with prototyping tools that they can make their thinking tangible.</p>
+
+    <h2>When Not to Build a Prototype</h2>
+
+    <p>Prototyping isn't free. It takes time, and it can create false anchoring — the team starts treating the prototype as the spec rather than a thinking artifact.</p>
+
+    <p>Don't prototype when:</p>
+    <ul>
+      <li>The decision is about strategy, not UX. Prototypes answer UX questions. They don't answer "should we build this at all."</li>
+      <li>You already have user research that answers the question. A prototype is for generating questions, not confirming conclusions you already have.</li>
+      <li>The feature is so well-defined that the flow is unambiguous. Not everything needs a prototype. Save it for complexity.</li>
+    </ul>
+
+    <h2>The Real Reason to Build</h2>
+
+    <p>Beyond the practical benefits, there's something harder to articulate about what prototyping does to how you think about product.</p>
+
+    <p>When you've built something — even a rough, weekend version — you understand the constraints in a different way. You have intuitions about why certain interactions are hard to build, which design choices have engineering implications, and what "feasible" actually means in practice. These intuitions make you a better collaborator with your engineering team.</p>
+
+    <p>They also make you less precious about your own ideas. Building quickly and showing it to people trains you to think of product ideas as hypotheses, not conclusions. When your prototype gets user feedback and you discover a core assumption was wrong, it's disappointing — but not catastrophic, because you invested a weekend, not a quarter.</p>
+
+    <blockquote>
+      The PM who prototypes is playing a different game. Not a more technical game — a more honest one.
+    </blockquote>
+
+    <p>The slide deck PM can stay vague indefinitely. The prototype PM finds out what they're wrong about before it's expensive to be wrong about it.</p>
+
+    <p>That's the whole argument.</p>
+
+  </div>
+
+  <hr style="margin:3rem 0;border-color:var(--c-border)">
+  <div style="display:flex;align-items:center;gap:1rem">
+    <img src="../img/profile.png" alt="Sourav Verma" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--c-border)">
+    <div>
+      <div style="font-weight:700;font-size:0.9rem">Sourav Verma</div>
+      <div style="font-size:0.8rem;color:var(--c-muted)">Product Manager — AI &amp; New Initiatives at Visit Health · <a href="../index.html" style="color:var(--c-primary)">Portfolio</a></div>
+    </div>
+  </div>
+</article>
+
+<footer style="background:var(--c-hero);padding:2rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)">
+  <a href="../blog.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;display:inline-flex;align-items:center;gap:6px">
+    <i class="fas fa-arrow-left"></i> Back to Blog
+  </a>
+</footer>
+</body>
+</html>
