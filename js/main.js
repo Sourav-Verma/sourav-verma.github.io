@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initCarousels();
   initFilterTabs();
   initSmoothScroll();
+  initMarquee();
 });
 
 /* ── HERO ENTRY ANIMATIONS ── */
@@ -256,8 +257,13 @@ function initCarousels() {
     if (outer) {
       const prev = outer.querySelector('.carousel-arrow.prev');
       const next = outer.querySelector('.carousel-arrow.next');
-      if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -340, behavior: 'smooth' }); });
-      if (next) next.addEventListener('click', function () { track.scrollBy({ left:  340, behavior: 'smooth' }); });
+      function arrowScroll(dir) {
+        paused = true;
+        track.scrollBy({ left: dir * 340, behavior: 'smooth' });
+        setTimeout(function () { paused = false; }, 1500);
+      }
+      if (prev) prev.addEventListener('click', function () { arrowScroll(-1); });
+      if (next) next.addEventListener('click', function () { arrowScroll(1); });
     }
   });
 }
@@ -286,6 +292,33 @@ function initFilterTabs() {
       });
     });
   });
+}
+
+/* ── MARQUEE AUTO-SCROLL ── */
+function initMarquee() {
+  var inner = document.querySelector('.marquee-inner');
+  if (!inner) return;
+
+  var offset = 0;
+  var paused = false;
+  var speed  = 0.45; // px per frame at 60fps
+
+  var strip = inner.closest('.marquee-strip');
+  if (strip) {
+    strip.addEventListener('mouseenter', function () { paused = true; });
+    strip.addEventListener('mouseleave', function () { paused = false; });
+  }
+
+  function tick() {
+    if (!paused) {
+      offset += speed;
+      var half = inner.scrollWidth / 2;
+      if (half > 0 && offset >= half) offset -= half;
+      inner.style.transform = 'translateX(-' + offset.toFixed(2) + 'px)';
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 }
 
 /* ── SMOOTH SCROLL ── */

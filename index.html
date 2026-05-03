@@ -12,6 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
 </head>
 <body>
 
@@ -34,7 +39,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="resume.pdf" download class="btn-nav-cta">
+      <a href="resume/Sourav_Verma_Resume_PM.pdf" download class="btn-nav-cta">
         <i class="fas fa-download"></i> Download CV
       </a>
     </div>
@@ -51,7 +56,7 @@
   <a href="#builds">Work</a>
   <a href="#blog">Writing</a>
   <a href="#contact">Contact</a>
-  <a href="resume.pdf" download style="color:var(--c-violet);font-weight:700">
+  <a href="resume/Sourav_Verma_Resume_PM.pdf" download style="color:var(--c-violet);font-weight:700">
     <i class="fas fa-download"></i> Download CV
   </a>
 </div>
@@ -108,7 +113,7 @@
         <a href="#builds" class="btn-primary">
           <i class="fas fa-th-large"></i> See My Work
         </a>
-        <a href="resume.pdf" download class="btn-outline-light">
+        <a href="resume/Sourav_Verma_Resume_PM.pdf" download class="btn-outline-light">
           <i class="fas fa-download"></i> Download CV
         </a>
       </div>
@@ -128,42 +133,6 @@
         </a>
       </div>
 
-      <div class="org-logos-strip hero-el" style="--delay:0.8s">
-        <span class="org-logos-label">Experience at</span>
-        <div class="org-logos-row">
-          <div class="org-logo-item" title="Visit Health">
-            <img src="https://logo.clearbit.com/visithealth.in"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-                 alt="Visit Health" loading="lazy">
-            <span class="org-logo-fallback vh">VH</span>
-            <span class="org-logo-name">Visit Health</span>
-          </div>
-          <div class="org-logo-divider"></div>
-          <div class="org-logo-item" title="Swiggy">
-            <img src="https://logo.clearbit.com/swiggy.com"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-                 alt="Swiggy" loading="lazy">
-            <span class="org-logo-fallback sw">SW</span>
-            <span class="org-logo-name">Swiggy</span>
-          </div>
-          <div class="org-logo-divider"></div>
-          <div class="org-logo-item" title="Decisions">
-            <img src="https://logo.clearbit.com/decisions.com"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-                 alt="Decisions" loading="lazy">
-            <span class="org-logo-fallback dc">DC</span>
-            <span class="org-logo-name">Decisions</span>
-          </div>
-          <div class="org-logo-divider"></div>
-          <div class="org-logo-item" title="IIM Visakhapatnam">
-            <img src="https://logo.clearbit.com/iimv.ac.in"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-                 alt="IIM Vizag" loading="lazy">
-            <span class="org-logo-fallback iim">IIM</span>
-            <span class="org-logo-name">IIM Vizag</span>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Profile visual -->
@@ -184,6 +153,16 @@
           <div class="hero-float-card">
             <div class="hfc-val">8 yrs</div>
             <div class="hfc-lbl">AI Products</div>
+          </div>
+          <!-- Company logo badges -->
+          <div class="hero-logo-card badge-swiggy">
+            <img src="img/swiggy-logo.svg" alt="Swiggy">
+          </div>
+          <div class="hero-logo-card badge-vh">
+            <img src="img/Visit-health-logo.png" alt="Visit Health">
+          </div>
+          <div class="hero-logo-card badge-decisions">
+            <img src="img/decision-logo.png" alt="Decisions">
           </div>
         </div>
       </div>
@@ -226,6 +205,32 @@
 </div>
 
 <!-- ══════════════════════════════════════════════════
+     STAT CALLOUT — Bento Grid
+══════════════════════════════════════════════════ -->
+<section class="stat-callout" aria-label="Key metrics">
+  <div class="container">
+    <div class="stat-callout-grid">
+      <div class="stat-callout-item animate">
+        <div class="stat-callout-num"><span>$12M+</span></div>
+        <div class="stat-callout-label">Cumulative<br>Business Impact</div>
+      </div>
+      <div class="stat-callout-item animate animate-delay-1">
+        <div class="stat-callout-num"><span>70%</span></div>
+        <div class="stat-callout-label">Straight-Through<br>Processing</div>
+      </div>
+      <div class="stat-callout-item animate animate-delay-2">
+        <div class="stat-callout-num"><span>&lt;10s</span></div>
+        <div class="stat-callout-label">Claim Approval<br>TAT</div>
+      </div>
+      <div class="stat-callout-item animate animate-delay-3">
+        <div class="stat-callout-num"><span>8 Yrs</span></div>
+        <div class="stat-callout-label">AI Product<br>Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
      ABOUT
 ══════════════════════════════════════════════════ -->
 <section class="about-section section-pad" id="about">
@@ -252,7 +257,7 @@
           </div>
         </div>
         <div class="about-links">
-          <a href="resume.pdf" download class="about-link-btn primary">
+          <a href="resume/Sourav_Verma_Resume_PM.pdf" download class="about-link-btn primary">
             <i class="fas fa-download"></i> Download Resume
           </a>
           <a href="https://sourav-verma-product.notion.site/Portfolio-268cdbd8fce080348220feef68b57311" target="_blank" rel="noopener" class="about-link-btn ghost">
@@ -335,6 +340,161 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PM PRINCIPLES
+══════════════════════════════════════════════════ -->
+<section class="principles-section section-pad" id="principles">
+  <div class="container">
+    <div class="section-eyebrow animate">How I Think</div>
+    <h2 class="display-lg animate animate-delay-1">PM principles I live by</h2>
+    <p class="section-sub animate animate-delay-2">Perspectives shaped by 8 years of shipping real products — not borrowed from a course.</p>
+
+    <div class="principles-grid">
+      <div class="principle-card animate animate-delay-1">
+        <div class="principle-num">01</div>
+        <h3>Ship to learn,<br>not to show.</h3>
+        <p>A working prototype validated in 48 hours tends to answer questions that 50 slides can't. The GitHub builds on this page were running before any stakeholder deck existed for the same idea.</p>
+        <div class="principle-tag">Execution over Theater</div>
+      </div>
+      <div class="principle-card animate animate-delay-2">
+        <div class="principle-num">02</div>
+        <h3>Data tells you what.<br>Users tell you why.</h3>
+        <p>SQL and Mixpanel reveal patterns — user interviews explain them. Neither is sufficient on its own. A tight cohort analysis paired with a handful of honest conversations usually surfaces more than a 20-page research report.</p>
+        <div class="principle-tag">Mixed Methods Always</div>
+      </div>
+      <div class="principle-card animate animate-delay-3">
+        <div class="principle-num">03</div>
+        <h3>Strategy is the art<br>of ruthless no's.</h3>
+        <p>Every yes is a tax on the most important yes. The right roadmap is usually shorter than what stakeholders propose. Good prioritization means being deliberate about what doesn't make it — and being able to explain why clearly.</p>
+        <div class="principle-tag">Prioritization First</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PRODUCTS & BUILDS
+══════════════════════════════════════════════════ -->
+<section class="builds-section section-pad" id="builds">
+  <div class="container">
+    <div class="section-eyebrow animate">Portfolio</div>
+    <h2 class="display-lg animate animate-delay-1" style="margin-bottom:0.5rem">Products &amp; Builds</h2>
+    <p class="section-sub animate animate-delay-2">
+      Working prototypes built to validate ideas before pitching them. Real code, not mockups.
+    </p>
+    <div class="filter-tabs animate animate-delay-2">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="prototype">Prototype</button>
+      <button class="filter-tab" data-filter="case">Case Study</button>
+      <button class="filter-tab" data-filter="new">New Initiatives</button>
+    </div>
+
+    <div class="builds-grid">
+
+      <!-- Cashless Vision -->
+      <div class="build-card featured animate animate-delay-1" data-tags="prototype" data-featured="true">
+        <div class="build-card-emoji">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="build-card-title">AI Cashless Vision — Retail-to-Insurance Handoff</div>
+        <div class="build-tags">
+          <span class="build-tag tag-proto">Prototype</span>
+          <span class="build-tag tag-ai">AI</span>
+          <span class="build-tag" style="background:#fff7ed;color:#c2410c">InsurTech</span>
+        </div>
+        <p class="build-desc">Seamless handoff between Lenskart (retail) and Visit Health (insurance) for cashless vision care redemption. Features live wallet co-pay calculation, dynamic member tagging, claim tracking timeline, and coverage wallet view.</p>
+        <div class="build-outcome">Powers Lenskart + Titan Eye+ integrations · $4.2M+ incremental ARR (₹35 Cr+)</div>
+        <div class="build-links">
+          <a href="https://sourav-verma.github.io/cashless-vision-prototype-v2/" target="_blank" rel="noopener" class="build-link live">
+            <i class="fas fa-external-link-alt"></i> Live Prototype
+          </a>
+          <a href="https://sourav-verma.github.io/cashless-vision-coverage/" target="_blank" rel="noopener" class="build-link live">
+            <i class="fas fa-external-link-alt"></i> Coverage Wallet
+          </a>
+        </div>
+      </div>
+
+      <!-- Smart Lab Report -->
+      <div class="build-card animate animate-delay-2" data-tags="new ai">
+        <div class="build-card-emoji">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+        </div>
+        <div class="build-card-title">Smart Lab Report Intelligence</div>
+        <div class="build-tags">
+          <span class="build-tag tag-new">New Initiative</span>
+          <span class="build-tag tag-ai">AI</span>
+        </div>
+        <p class="build-desc">AI transforms raw lab report data into interactive, plain-language health insights. Suggests supplements educatively — based on deficiencies, not prescriptions — to drive conversion without being pushy.</p>
+        <div class="build-outcome expected">Expected $3M ARR (₹25 Cr) · In Development</div>
+      </div>
+
+      <!-- Pet Care -->
+      <div class="build-card animate animate-delay-3" data-tags="prototype">
+        <div class="build-card-emoji">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="build-card-title">Pet Care Cashless Journey</div>
+        <div class="build-tags">
+          <span class="build-tag tag-proto">Prototype</span>
+          <span class="build-tag tag-new" style="background:#f0fdf4;color:#166534">HealthTech</span>
+        </div>
+        <p class="build-desc">End-to-end cashless claim journey prototype for pet healthcare insurance at Visit Health — exploring the extension of the cashless ecosystem to veterinary care.</p>
+        <div class="build-links">
+          <a href="https://sourav-verma.github.io/cashless-pet-care/" target="_blank" rel="noopener" class="build-link live">
+            <i class="fas fa-external-link-alt"></i> Live Prototype
+          </a>
+        </div>
+      </div>
+
+      <!-- AI CDM -->
+      <div class="build-card animate animate-delay-1" data-tags="case ai">
+        <div class="build-card-emoji">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div class="build-card-title">AI Chronic Disease Management Platform</div>
+        <div class="build-tags">
+          <span class="build-tag tag-case">0→1</span>
+          <span class="build-tag tag-ai">AI</span>
+        </div>
+        <p class="build-desc">Built habit-loop CDM from scratch. Personalized health interventions via behavioral signals and health data. Persona-driven architecture with automated multi-channel engagement.</p>
+        <div class="build-outcome">20K+ users · 40% MoM growth · 14% LTV lift</div>
+        <div class="build-links">
+          <a href="https://sourav-verma-product.notion.site/Condition-Management-Program-268cdbd8fce0819895c3d425c9c0c8b4" target="_blank" rel="noopener" class="build-link notion">
+            <i class="fas fa-book-open"></i> Case Study
+          </a>
+        </div>
+      </div>
+
+      <!-- AI Adjudication -->
+      <div class="build-card animate animate-delay-2" data-tags="case ai">
+        <div class="build-card-emoji">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="build-card-title">AI Instant Adjudication Engine</div>
+        <div class="build-tags">
+          <span class="build-tag tag-case">0→1</span>
+          <span class="build-tag tag-ai">AI</span>
+          <span class="build-tag tag-proto" style="background:#fdf4ff;color:#a21caf">Claims</span>
+        </div>
+        <p class="build-desc">AI-powered engine that processes cashless insurance claims end-to-end, eliminating manual review for the majority of claims and dramatically improving policyholder experience.</p>
+        <div class="build-outcome">16 hrs → &lt;10 seconds · 70% straight-through processing</div>
+        <div class="build-links">
+          <a href="https://sourav-verma-product.notion.site/Portfolio-268cdbd8fce080348220feef68b57311" target="_blank" rel="noopener" class="build-link notion">
+            <i class="fas fa-book-open"></i> Portfolio
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="projects.html" class="view-all-link animate">
+        View All Projects &amp; Teardowns <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -455,187 +615,6 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════
-     STAT CALLOUT — Bento Grid
-══════════════════════════════════════════════════ -->
-<section class="stat-callout" aria-label="Key metrics">
-  <div class="container">
-    <div class="stat-callout-grid">
-      <div class="stat-callout-item animate">
-        <div class="stat-callout-num"><span>$12M+</span></div>
-        <div class="stat-callout-label">Cumulative<br>Business Impact</div>
-      </div>
-      <div class="stat-callout-item animate animate-delay-1">
-        <div class="stat-callout-num"><span>70%</span></div>
-        <div class="stat-callout-label">Straight-Through<br>Processing</div>
-      </div>
-      <div class="stat-callout-item animate animate-delay-2">
-        <div class="stat-callout-num"><span>&lt;10s</span></div>
-        <div class="stat-callout-label">Claim Approval<br>TAT</div>
-      </div>
-      <div class="stat-callout-item animate animate-delay-3">
-        <div class="stat-callout-num"><span>8 Yrs</span></div>
-        <div class="stat-callout-label">AI Product<br>Experience</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     PM PRINCIPLES
-══════════════════════════════════════════════════ -->
-<section class="principles-section section-pad" id="principles">
-  <div class="container">
-    <div class="section-eyebrow animate">How I Think</div>
-    <h2 class="display-lg animate animate-delay-1">PM principles I live by</h2>
-    <p class="section-sub animate animate-delay-2">Not frameworks I learned in a course. Convictions earned from shipping.</p>
-
-    <div class="principles-grid">
-      <div class="principle-card animate animate-delay-1">
-        <div class="principle-num">01</div>
-        <h3>Ship to learn,<br>not to show.</h3>
-        <p>A working prototype validated in 48 hours beats a 50-slide deck every time. I build to learn, not to impress. The GitHub builds on this page exist before any stakeholder deck did.</p>
-        <div class="principle-tag">Execution over Theater</div>
-      </div>
-      <div class="principle-card animate animate-delay-2">
-        <div class="principle-num">02</div>
-        <h3>Data tells you what.<br>Users tell you why.</h3>
-        <p>SQL and Mixpanel give you patterns — interviews give you meaning. I never ship a feature based on one without the other. Cohort data + 5 user sessions beats a 20-page research report.</p>
-        <div class="principle-tag">Mixed Methods Always</div>
-      </div>
-      <div class="principle-card animate animate-delay-3">
-        <div class="principle-num">03</div>
-        <h3>Strategy is the art<br>of ruthless no's.</h3>
-        <p>Every "yes" is a tax on your best "yes." The roadmap that's right is usually half as long as what stakeholders want. I say no more than I say yes — and I keep receipts on why.</p>
-        <div class="principle-tag">Prioritization First</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
-     PRODUCTS & BUILDS
-══════════════════════════════════════════════════ -->
-<section class="builds-section section-pad" id="builds">
-  <div class="container">
-    <div class="section-eyebrow animate">Portfolio</div>
-    <h2 class="display-lg animate animate-delay-1" style="margin-bottom:0.5rem">Products &amp; Builds</h2>
-    <p class="section-sub animate animate-delay-2">
-      I prototype ideas I want to ship. These are working builds — not slide decks.
-    </p>
-    <div class="filter-tabs animate animate-delay-2">
-      <button class="filter-tab active" data-filter="all">All</button>
-      <button class="filter-tab" data-filter="prototype">Prototype</button>
-      <button class="filter-tab" data-filter="case">Case Study</button>
-      <button class="filter-tab" data-filter="new">New Initiatives</button>
-    </div>
-
-    <div class="builds-grid">
-
-      <!-- Cashless Vision -->
-      <div class="build-card featured animate animate-delay-1" data-tags="prototype" data-featured="true">
-        <div class="build-card-emoji">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        </div>
-        <div class="build-card-title">AI Cashless Vision — Retail-to-Insurance Handoff</div>
-        <div class="build-tags">
-          <span class="build-tag tag-proto">Prototype</span>
-          <span class="build-tag tag-ai">AI</span>
-          <span class="build-tag" style="background:#fff7ed;color:#c2410c">InsurTech</span>
-        </div>
-        <p class="build-desc">Seamless handoff between Lenskart (retail) and Visit Health (insurance) for cashless vision care redemption. Features live wallet co-pay calculation, dynamic member tagging, claim tracking timeline, and coverage wallet view.</p>
-        <div class="build-outcome">Powers Lenskart + Titan Eye+ integrations · $4.2M+ incremental ARR (₹35 Cr+)</div>
-        <div class="build-links">
-          <a href="https://sourav-verma.github.io/cashless-vision-prototype-v2/" target="_blank" rel="noopener" class="build-link live">
-            <i class="fas fa-external-link-alt"></i> Live Prototype
-          </a>
-          <a href="https://sourav-verma.github.io/cashless-vision-coverage/" target="_blank" rel="noopener" class="build-link live">
-            <i class="fas fa-external-link-alt"></i> Coverage Wallet
-          </a>
-        </div>
-      </div>
-
-      <!-- Smart Lab Report -->
-      <div class="build-card animate animate-delay-2" data-tags="new ai">
-        <div class="build-card-emoji">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-        </div>
-        <div class="build-card-title">Smart Lab Report Intelligence</div>
-        <div class="build-tags">
-          <span class="build-tag tag-new">New Initiative</span>
-          <span class="build-tag tag-ai">AI</span>
-        </div>
-        <p class="build-desc">AI transforms raw lab report data into interactive, plain-language health insights. Suggests supplements educatively — based on deficiencies, not prescriptions — to drive conversion without being pushy.</p>
-        <div class="build-outcome expected">Expected $3M ARR (₹25 Cr) · In Development</div>
-      </div>
-
-      <!-- Pet Care -->
-      <div class="build-card animate animate-delay-3" data-tags="prototype">
-        <div class="build-card-emoji">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <div class="build-card-title">Pet Care Cashless Journey</div>
-        <div class="build-tags">
-          <span class="build-tag tag-proto">Prototype</span>
-          <span class="build-tag tag-new" style="background:#f0fdf4;color:#166534">HealthTech</span>
-        </div>
-        <p class="build-desc">End-to-end cashless claim journey prototype for pet healthcare insurance at Visit Health — exploring the extension of the cashless ecosystem to veterinary care.</p>
-        <div class="build-links">
-          <a href="https://sourav-verma.github.io/cashless-pet-care/" target="_blank" rel="noopener" class="build-link live">
-            <i class="fas fa-external-link-alt"></i> Live Prototype
-          </a>
-        </div>
-      </div>
-
-      <!-- AI CDM -->
-      <div class="build-card animate animate-delay-1" data-tags="case ai">
-        <div class="build-card-emoji">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-        </div>
-        <div class="build-card-title">AI Chronic Disease Management Platform</div>
-        <div class="build-tags">
-          <span class="build-tag tag-case">0→1</span>
-          <span class="build-tag tag-ai">AI</span>
-        </div>
-        <p class="build-desc">Built habit-loop CDM from scratch. Personalized health interventions via behavioral signals and health data. Persona-driven architecture with automated multi-channel engagement.</p>
-        <div class="build-outcome">20K+ users · 40% MoM growth · 14% LTV lift</div>
-        <div class="build-links">
-          <a href="https://sourav-verma-product.notion.site/Condition-Management-Program-268cdbd8fce0819895c3d425c9c0c8b4" target="_blank" rel="noopener" class="build-link notion">
-            <i class="fas fa-book-open"></i> Case Study
-          </a>
-        </div>
-      </div>
-
-      <!-- AI Adjudication -->
-      <div class="build-card animate animate-delay-2" data-tags="case ai">
-        <div class="build-card-emoji">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="24" height="24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <div class="build-card-title">AI Instant Adjudication Engine</div>
-        <div class="build-tags">
-          <span class="build-tag tag-case">0→1</span>
-          <span class="build-tag tag-ai">AI</span>
-          <span class="build-tag tag-proto" style="background:#fdf4ff;color:#a21caf">Claims</span>
-        </div>
-        <p class="build-desc">AI-powered engine that processes cashless insurance claims end-to-end, eliminating manual review for the majority of claims and dramatically improving policyholder experience.</p>
-        <div class="build-outcome">16 hrs → &lt;10 seconds · 70% straight-through processing</div>
-        <div class="build-links">
-          <a href="https://sourav-verma-product.notion.site/Portfolio-268cdbd8fce080348220feef68b57311" target="_blank" rel="noopener" class="build-link notion">
-            <i class="fas fa-book-open"></i> Portfolio
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="text-align:center;margin-top:2.5rem">
-      <a href="projects.html" class="view-all-link animate">
-        View All Projects &amp; Teardowns <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════
      HOW I WORK (Skills)
 ══════════════════════════════════════════════════ -->
 <section class="skills-section section-pad" id="skills">
@@ -661,13 +640,15 @@
         <h3>Understand the problem before defining the solution.</h3>
         <div class="hiw-skills">
           <span class="hiw-skill-tag">User Interviews</span>
+          <span class="hiw-skill-tag">JTBD Framework</span>
           <span class="hiw-skill-tag">SQL Analytics</span>
           <span class="hiw-skill-tag">Cohort Analysis</span>
           <span class="hiw-skill-tag">Funnel Analysis</span>
+          <span class="hiw-skill-tag">Customer Journey Mapping</span>
           <span class="hiw-skill-tag">Market Research</span>
           <span class="hiw-skill-tag">Mixpanel / Amplitude</span>
-          <span class="hiw-skill-tag">Customer Insights</span>
-          <span class="hiw-skill-tag">Snowflake</span>
+          <span class="hiw-skill-tag">Competitive Intelligence</span>
+          <span class="hiw-skill-tag">Metabase / Snowflake</span>
         </div>
       </div>
 
@@ -691,11 +672,13 @@
           <span class="hiw-skill-tag">Product Roadmap</span>
           <span class="hiw-skill-tag">PRD Writing</span>
           <span class="hiw-skill-tag">OKR Setting</span>
-          <span class="hiw-skill-tag">RICE / ICE</span>
+          <span class="hiw-skill-tag">RICE / ICE / WSJF</span>
+          <span class="hiw-skill-tag">North Star Metrics</span>
           <span class="hiw-skill-tag">GTM Strategy</span>
           <span class="hiw-skill-tag">Stakeholder Mgmt</span>
           <span class="hiw-skill-tag">P&amp;L Ownership</span>
           <span class="hiw-skill-tag">PLG</span>
+          <span class="hiw-skill-tag">API Requirements</span>
         </div>
       </div>
 
@@ -717,13 +700,15 @@
         <h3>Ship fast. Measure everything. Repeat.</h3>
         <div class="hiw-skills">
           <span class="hiw-skill-tag">Agile / Scrum</span>
-          <span class="hiw-skill-tag">A/B Testing</span>
-          <span class="hiw-skill-tag">Product Launch</span>
+          <span class="hiw-skill-tag">A/B Testing &amp; Experimentation</span>
+          <span class="hiw-skill-tag">Figma &amp; Prototyping</span>
           <span class="hiw-skill-tag">LLM / AI Products</span>
           <span class="hiw-skill-tag">RAG Architecture</span>
           <span class="hiw-skill-tag">Prompt Engineering</span>
+          <span class="hiw-skill-tag">Model Evaluation</span>
+          <span class="hiw-skill-tag">LLM Evals</span>
           <span class="hiw-skill-tag">Python</span>
-          <span class="hiw-skill-tag">REST APIs / Figma</span>
+          <span class="hiw-skill-tag">REST APIs</span>
         </div>
       </div>
     </div>
@@ -740,6 +725,8 @@
         <span class="domain-tag">Enterprise SaaS</span>
         <span class="domain-tag">Generative AI</span>
         <span class="domain-tag">LLM Applications</span>
+        <span class="domain-tag">Conversational AI</span>
+        <span class="domain-tag">Recommendation Systems</span>
       </div>
     </div>
   </div>
@@ -911,7 +898,7 @@
         <a href="mailto:saurav.verma72@gmail.com" class="btn-primary">
           <i class="fas fa-envelope"></i> Say Hello
         </a>
-        <a href="resume.pdf" download class="btn-outline-dark">
+        <a href="resume/Sourav_Verma_Resume_PM.pdf" download class="btn-outline-dark">
           <i class="fas fa-download"></i> Download Resume
         </a>
       </div>
