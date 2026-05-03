@@ -1,11 +1,15 @@
 /* ==========================================================
-   MAIN.JS — Sourav Verma Portfolio
+   MAIN.JS — Sourav Verma Portfolio v3
 ========================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
+  initHeroEntry();
   initNav();
   initMobileNav();
   initScrollAnimations();
+  initCursorFollower();
+  initMagneticButtons();
+  initCardTilt();
   initCounters();
   initCampaignTabs();
   initCarousels();
@@ -13,17 +17,26 @@ document.addEventListener('DOMContentLoaded', function () {
   initSmoothScroll();
 });
 
-/* ── NAV SCROLL BEHAVIOR ── */
+/* ── HERO ENTRY ANIMATIONS ── */
+function initHeroEntry() {
+  const els = document.querySelectorAll('.hero-el');
+  if (!els.length) return;
+  // Small RAF delay so CSS transitions fire
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      els.forEach(function (el) {
+        el.classList.add('loaded');
+      });
+    });
+  });
+}
+
+/* ── NAV ── */
 function initNav() {
   const nav = document.querySelector('.site-nav');
   if (!nav) return;
-
   function updateNav() {
-    if (window.scrollY > 40) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
+    nav.classList.toggle('scrolled', window.scrollY > 40);
   }
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
@@ -36,13 +49,9 @@ function initMobileNav() {
   if (!hamburger || !mobileNav) return;
 
   hamburger.addEventListener('click', function () {
-    mobileNav.classList.toggle('open');
+    const isOpen = mobileNav.classList.toggle('open');
     const icon = hamburger.querySelector('i');
-    if (icon) {
-      icon.className = mobileNav.classList.contains('open')
-        ? 'fas fa-times'
-        : 'fas fa-bars';
-    }
+    if (icon) icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
   });
 
   mobileNav.querySelectorAll('a').forEach(function (link) {
@@ -76,11 +85,89 @@ function initScrollAnimations() {
         }
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.1, rootMargin: '0px 0px -36px 0px' }
   );
 
-  targets.forEach(function (el) {
-    observer.observe(el);
+  targets.forEach(function (el) { observer.observe(el); });
+}
+
+/* ── CURSOR FOLLOWER ── */
+function initCursorFollower() {
+  const cursor = document.getElementById('cursor-follower');
+  if (!cursor) return;
+
+  // Only on non-touch devices
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
+  let raf;
+
+  document.addEventListener('mousemove', function (e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }, { passive: true });
+
+  function tick() {
+    cursorX += (mouseX - cursorX) * 0.1;
+    cursorY += (mouseY - cursorY) * 0.1;
+    cursor.style.transform = 'translate(' + cursorX + 'px, ' + cursorY + 'px) translate(-50%, -50%)';
+    raf = requestAnimationFrame(tick);
+  }
+  raf = requestAnimationFrame(tick);
+
+  const hoverTargets = document.querySelectorAll('a, button, .build-card, .blog-card, .principle-card, .interest-item, .exp-card');
+  hoverTargets.forEach(function (el) {
+    el.addEventListener('mouseenter', function () { cursor.classList.add('hovering'); });
+    el.addEventListener('mouseleave', function () { cursor.classList.remove('hovering'); });
+  });
+
+  document.addEventListener('mouseleave', function () { cursor.style.opacity = '0'; });
+  document.addEventListener('mouseenter', function () { cursor.style.opacity = '1'; });
+}
+
+/* ── MAGNETIC BUTTONS ── */
+function initMagneticButtons() {
+  const mediaQuery = window.matchMedia('(pointer: fine)');
+  if (!mediaQuery.matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const btns = document.querySelectorAll('.btn-primary, .btn-outline-light, .btn-nav-cta');
+  btns.forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width  / 2) * 0.18;
+      const y = (e.clientY - rect.top  - rect.height / 2) * 0.18;
+      btn.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+      btn.style.transition = 'transform 0.1s linear';
+    });
+    btn.addEventListener('mouseleave', function () {
+      btn.style.transform = '';
+      btn.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s, box-shadow 0.2s, color 0.2s';
+    });
+  });
+}
+
+/* ── CARD TILT ── */
+function initCardTilt() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const cards = document.querySelectorAll('.build-card, .principle-card, .blog-card');
+  cards.forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      const rotX = y * -5;
+      const rotY = x *  5;
+      card.style.transform = 'perspective(700px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translateY(-4px)';
+      card.style.transition = 'transform 0.1s linear';
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s, border-color 0.25s';
+    });
   });
 }
 
@@ -94,27 +181,21 @@ function initCounters() {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           const el = entry.target;
-          const target = parseFloat(el.dataset.count);
-          const prefix = el.dataset.prefix || '';
-          const suffix = el.dataset.suffix || '';
+          const target   = parseFloat(el.dataset.count);
+          const prefix   = el.dataset.prefix  || '';
+          const suffix   = el.dataset.suffix  || '';
           const decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
           const duration = 1800;
-          const start = performance.now();
+          const start    = performance.now();
 
           function update(now) {
-            const elapsed = now - start;
+            const elapsed  = now - start;
             const progress = Math.min(elapsed / duration, 1);
-            // ease out quart
-            const eased = 1 - Math.pow(1 - progress, 4);
-            const value = eased * target;
-            el.textContent = prefix + value.toFixed(decimals) + suffix;
-            if (progress < 1) {
-              requestAnimationFrame(update);
-            } else {
-              el.textContent = prefix + target.toFixed(decimals) + suffix;
-            }
+            const eased    = 1 - Math.pow(1 - progress, 4);
+            el.textContent = prefix + (eased * target).toFixed(decimals) + suffix;
+            if (progress < 1) requestAnimationFrame(update);
+            else el.textContent = prefix + target.toFixed(decimals) + suffix;
           }
-
           requestAnimationFrame(update);
           observer.unobserve(el);
         }
@@ -123,14 +204,12 @@ function initCounters() {
     { threshold: 0.5 }
   );
 
-  counters.forEach(function (el) {
-    observer.observe(el);
-  });
+  counters.forEach(function (el) { observer.observe(el); });
 }
 
 /* ── CAMPAIGN TABS ── */
 function initCampaignTabs() {
-  const tabs = document.querySelectorAll('.campaign-tab');
+  const tabs     = document.querySelectorAll('.campaign-tab');
   const previews = document.querySelectorAll('.campaign-preview');
   if (!tabs.length) return;
 
@@ -148,63 +227,44 @@ function initCampaignTabs() {
 
 /* ── HORIZONTAL CAROUSELS ── */
 function initCarousels() {
-  const carousels = document.querySelectorAll('.carousel-track');
-
-  carousels.forEach(function (track) {
-    const id = track.dataset.carouselId || Math.random();
-    let paused = false;
+  document.querySelectorAll('.carousel-track').forEach(function (track) {
+    let paused   = false;
     let lastTime = null;
-    const speed = parseFloat(track.dataset.speed || '0.6');
+    const speed  = parseFloat(track.dataset.speed || '0.6');
 
-    // Pause on hover/touch
-    track.addEventListener('mouseenter', function () { paused = true; });
-    track.addEventListener('mouseleave', function () { paused = false; });
-    track.addEventListener('touchstart', function () { paused = true; }, { passive: true });
-    track.addEventListener('touchend',   function () {
-      setTimeout(function () { paused = false; }, 1500);
-    }, { passive: true });
+    track.addEventListener('mouseenter',  function () { paused = true; });
+    track.addEventListener('mouseleave',  function () { paused = false; });
+    track.addEventListener('touchstart',  function () { paused = true; },  { passive: true });
+    track.addEventListener('touchend',    function () { setTimeout(function () { paused = false; }, 1500); }, { passive: true });
 
-    function autoScroll(timestamp) {
-      if (!lastTime) lastTime = timestamp;
-      const delta = timestamp - lastTime;
-      lastTime = timestamp;
-
+    function autoScroll(ts) {
+      if (!lastTime) lastTime = ts;
+      const delta = ts - lastTime;
+      lastTime = ts;
       if (!paused) {
-        const maxScroll = track.scrollWidth - track.clientWidth;
-        if (maxScroll > 0) {
+        const max = track.scrollWidth - track.clientWidth;
+        if (max > 0) {
           track.scrollLeft += speed * (delta / 16.67);
-          if (track.scrollLeft >= maxScroll - 2) {
-            track.scrollLeft = 0;
-          }
+          if (track.scrollLeft >= max - 2) track.scrollLeft = 0;
         }
       }
       requestAnimationFrame(autoScroll);
     }
-
     requestAnimationFrame(autoScroll);
 
-    // Arrow controls
-    const carouselOuter = track.closest('.carousel-outer');
-    if (carouselOuter) {
-      const prevBtn = carouselOuter.querySelector('.carousel-arrow.prev');
-      const nextBtn = carouselOuter.querySelector('.carousel-arrow.next');
-      if (prevBtn) {
-        prevBtn.addEventListener('click', function () {
-          track.scrollBy({ left: -340, behavior: 'smooth' });
-        });
-      }
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function () {
-          track.scrollBy({ left: 340, behavior: 'smooth' });
-        });
-      }
+    const outer = track.closest('.carousel-outer');
+    if (outer) {
+      const prev = outer.querySelector('.carousel-arrow.prev');
+      const next = outer.querySelector('.carousel-arrow.next');
+      if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -340, behavior: 'smooth' }); });
+      if (next) next.addEventListener('click', function () { track.scrollBy({ left:  340, behavior: 'smooth' }); });
     }
   });
 }
 
-/* ── PROJECT/BUILD FILTER TABS ── */
+/* ── FILTER TABS ── */
 function initFilterTabs() {
-  const tabs = document.querySelectorAll('.filter-tab');
+  const tabs  = document.querySelectorAll('.filter-tab');
   const cards = document.querySelectorAll('.build-card');
   if (!tabs.length || !cards.length) return;
 
@@ -217,15 +277,10 @@ function initFilterTabs() {
       cards.forEach(function (card) {
         if (filter === 'all') {
           card.style.display = '';
-          // reset featured span
           if (card.dataset.featured === 'true') card.classList.add('featured');
         } else {
           const tags = card.dataset.tags || '';
-          if (tags.includes(filter)) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
+          card.style.display = tags.includes(filter) ? '' : 'none';
           card.classList.remove('featured');
         }
       });
@@ -235,19 +290,20 @@ function initFilterTabs() {
 
 /* ── SMOOTH SCROLL ── */
 function initSmoothScroll() {
-  const navHeight = parseInt(
+  const navH = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '68'
   );
-
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const target = document.querySelector(targetId);
+      const id = this.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - navH,
+        behavior: 'smooth'
+      });
     });
   });
 }
