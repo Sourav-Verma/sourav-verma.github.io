@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 'Vibe Coding' Revolution: From Individual Intent to Generative Execution — Sourav Verma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .post-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
+    .post-table th { background: var(--c-hero); color: rgba(255,255,255,0.85); padding: 0.65rem 0.9rem; text-align: left; font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .post-table td { padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--c-border); vertical-align: top; line-height: 1.55; }
+    .post-table tr:last-child td { border-bottom: none; }
+    .post-table tr:nth-child(even) td { background: var(--c-bg-off); }
+    .post-table td:first-child { font-weight: 600; color: var(--c-text); white-space: nowrap; }
+    .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .timeline-block { background: var(--c-violet-ll); border: 1px solid rgba(109,40,217,0.2); border-radius: var(--r-l); padding: 1rem 1.1rem; }
+    .timeline-block .tl-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-violet); margin-bottom: 4px; }
+    .timeline-block .tl-title { font-weight: 700; font-size: 0.9rem; color: var(--c-text); margin-bottom: 4px; }
+    .timeline-block .tl-tools { font-size: 0.8rem; color: var(--c-muted); }
+    .post-callout-warning { background: #fff7ed; border: 1px solid rgba(234,88,12,0.25); border-radius: var(--r-l); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .post-callout-warning .post-callout-label { color: var(--c-orange); }
+    .stat-pill { display: inline-block; background: var(--c-violet-ll); color: var(--c-violet); font-weight: 700; font-size: 1.4rem; border-radius: var(--r-m); padding: 0.2rem 0.7rem; margin-right: 0.3rem; }
+  </style>
+</head>
+<body style="background:var(--c-bg-slate)">
+
+<nav class="site-nav scrolled">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">SV<span>.</span></a>
+    <div class="post-nav-title">The Vibe Coding Revolution</div>
+    <a href="../blog.html" class="post-nav-back"><i class="fas fa-arrow-left"></i> All Posts</a>
+  </div>
+</nav>
+
+<article class="post-content">
+  <div class="post-hero-category cat-ai">🤖 AI Products</div>
+  <h1 class="post-title">The 'Vibe Coding' Revolution: From Individual Intent to Generative Execution</h1>
+  <div class="post-meta-row">
+    <span><i class="fas fa-calendar-alt"></i> May 4, 2026</span>
+    <span><i class="fas fa-clock"></i> 12 min read</span>
+    <span><i class="fas fa-tag"></i> AI, Vibe Coding, PM Tools, Productivity</span>
+  </div>
+
+  <div class="post-body">
+
+    <!-- Section 1: Opening -->
+    <p>On February 2, 2025, Andrej Karpathy — OpenAI co-founder and former Tesla AI director — posted a single tweet that would redefine software development. <em>"There's a new kind of coding I call 'vibe coding,'"</em> he wrote, <em>"where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."</em> The post hit <strong>4.5 million views</strong> within weeks. By March 2025, Merriam-Webster listed it as a trending expression. By December 2025, Collins English Dictionary named it <strong>Word of the Year for 2025</strong>.</p>
+
+    <p>Vibe coding is now mainstream. <strong>87% of Fortune 500 companies</strong> use at least one AI coding platform. The market is projected to reach <strong>$12.3 billion by 2027</strong>. Gartner estimates that 90% of enterprise software engineers will use AI code assistants by 2028 — up from less than 14% in early 2024.</p>
+
+    <p>But here's what most coverage misses: vibe coding isn't just a developer story. For product managers — especially those operating at the intersection of AI, strategy, and execution — it represents a fundamental shift in what the job means. The traditional PM wrote specs and waited. The 2026 PM <em>instantiates</em>.</p>
+
+    <p>This is the era of the <strong>Orchestrator PM</strong>. Whether I'm building a Job Application Agent, auditing a cashless payments vision screen, or validating a new feature hypothesis, I'm not just defining what should be built — I'm using natural language to make it exist, in hours, before it ever hits a production roadmap. This post is a breakdown of how I do it: the tools, the framework, the failure modes, and the real data behind the claims.</p>
+
+    <!-- Section 2: The Strategy Crisis -->
+    <h2>The Strategy Crisis: The Problem of Semantic Latency</h2>
+
+    <p>The traditional product development loop has a fundamental flaw: <strong>Semantic Latency</strong>. This is the delay between intent — the "vibe" — and functional reality. A PM writes a PRD. An engineer reads it, interprets it, builds a ticket, waits for sprint planning, then builds something that may or may not match what was envisioned. Weeks pass. The feedback loop is catastrophically slow.</p>
+
+    <p>PRDs fail because they are non-deterministic artifacts. They are static representations of dynamic systems. A PRD describes a product at one moment in time, in one person's mental model, in prose — the fuzziest communication format we have. By the time the PRD becomes code, the context has shifted, the market has moved, and what was built is a best-guess approximation of what was meant.</p>
+
+    <blockquote>
+      "In 2026, the ROI of my time as a PM is determined by my ability to move from Documentation-driven to Execution-first. Traditional PRDs are high-latency artifacts. They represent a world where the PM describes things and someone else builds them."
+    </blockquote>
+
+    <p>For a PM aiming for high-impact, the value isn't in writing Jira tickets — it's in the <strong>Speed of Validation</strong>. The correct question is no longer "Can we build this?" but "Is this worth building?" And the only honest answer to that question is a functional prototype — something that actually executes logic, handles real data, and breaks in predictable ways.</p>
+
+    <div class="post-callout">
+      <div class="post-callout-label">💡 The ROI Test</div>
+      <p style="margin:0">If it takes you more than a working day to turn a feature hypothesis into a functional prototype that a stakeholder can interact with, your feedback loop is too long. You are failing the ROI test. Vibe coding exists to collapse this gap — not as a shortcut, but as a structural shift in how product validation works.</p>
+    </div>
+
+    <p>The solution is the <strong>Experiencetype</strong> — a prototype that actually executes logic, proving the "vibe" is technically sound, before any engineer writes a line of production code. A Experiencetype isn't a Figma mock. It's a deployed URL that does something real.</p>
+
+    <!-- Section 3: The 2026 Stack -->
+    <h2>The 2026 Vibe Coding Stack</h2>
+
+    <p>The tools for vibe coding have matured into a coherent stack. Each layer has a distinct role, and understanding those roles is the difference between building fast and building chaos.</p>
+
+    <table class="post-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Layer</th>
+          <th>Best For</th>
+          <th>Key Differentiator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>v0 (Vercel)</td>
+          <td>Visual Vibe</td>
+          <td>React UI components from a prompt or screenshot</td>
+          <td>Production-grade React + Tailwind + shadcn/ui output; deep Vercel deployment integration</td>
+        </tr>
+        <tr>
+          <td>Lovable</td>
+          <td>Full-Stack Scaffold</td>
+          <td>Complete apps with DB, auth, and APIs in one prompt</td>
+          <td>Supabase-native (one-click: DB + auth + storage + Edge Functions); $200M ARR, $6.6B valuation</td>
+        </tr>
+        <tr>
+          <td>Bolt (StackBlitz)</td>
+          <td>Full-Stack Scaffold</td>
+          <td>Multi-framework apps with instant browser preview</td>
+          <td>Supports React, Vue, Angular, React Native; Bolt Cloud adds native hosting + DB since mid-2025</td>
+        </tr>
+        <tr>
+          <td>Replit Agent</td>
+          <td>Environment Orchestration</td>
+          <td>Agentic builds with terminal access and live hosting</td>
+          <td>Full browser-based IDE + terminal; 30+ integrations (Stripe, Figma, Notion); inspect every line</td>
+        </tr>
+        <tr>
+          <td>Claude Code</td>
+          <td>Reasoning Agent</td>
+          <td>Codebase understanding, debugging, and agentic fixes</td>
+          <td>Reads entire local codebases; runs git + shell commands; iterates until tests pass; CI integration</td>
+        </tr>
+        <tr>
+          <td>Cursor</td>
+          <td>Hardening IDE</td>
+          <td>Multi-file refactors and production-grade audits</td>
+          <td>"Composer" agent; $2B ARR; 2M users; adopted by half the Fortune 500; Automations platform</td>
+        </tr>
+        <tr>
+          <td>Windsurf</td>
+          <td>Hardening IDE</td>
+          <td>Repository-scale reasoning and parallel agent sessions</td>
+          <td>"Cascade" agent; acquired by Cognition for $250M (July 2025); 40+ IDE plugins; Turbo terminal mode</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Layer 1 — Visual Vibe: v0</h3>
+    <p>I start every prototype here. v0 specializes in generating production-grade <strong>React components using Tailwind CSS and shadcn/ui</strong> from a natural language description or a screenshot of an existing UI. If I'm auditing a cashless payments vision screen, I use v0 to instantly replicate the UI logic. It's opinionated about the stack — React + Tailwind only — but that constraint means the output is immediately deployable to Vercel. It's the fastest way to prove visual intent.</p>
+
+    <h3>Layer 2 — Full-Stack Scaffold: Lovable and Bolt</h3>
+    <p>When I need a backend immediately, I use <strong>Lovable</strong>. Its native Supabase integration is the real differentiator: one prompt can generate the form UI, create the Supabase PostgreSQL table, wire up authentication, configure storage, and deploy Edge Functions — simultaneously. I don't provision infrastructure; I describe outcomes.</p>
+    <p>Lovable's growth trajectory also signals real-world adoption: it reached <strong>$20M ARR in 60 days</strong> (fastest in European startup history) and closed a Series B at a <strong>$6.6 billion valuation</strong> in December 2025, reaching $200M ARR. This isn't toy software — enterprises are using it.</p>
+    <p><strong>Bolt</strong> adds framework flexibility. For a React Native prototype or a Vue-based dashboard, Bolt handles the environment. Its Bolt Cloud launch in mid-2025 added native hosting, databases, and user authentication, maturing it from a frontend generator into a true full-stack scaffolder.</p>
+
+    <h3>Layer 3 — Environment Orchestration: Replit Agent</h3>
+    <p>Replit Agent is where complex prototypes live. I tell it to <em>"Build a Python-based Job Application Agent with a Flask backend and a vector store for resume matching"</em> — and it handles the environment, dependencies, and hosting. The key differentiator is transparency: unlike black-box scaffolders, Replit gives you a <strong>full browser-based IDE with terminal access</strong> and the ability to inspect every line the agent writes. With 30+ integrations (Stripe, Figma, Notion, Salesforce), it handles production-adjacent complexity.</p>
+
+    <h3>Layer 4 — The Reasoning Agent: Claude Code</h3>
+    <p>This is my most powerful tool in the terminal. Claude Code reads my entire local codebase, runs shell and git commands natively, and fixes bugs in real-time by iterating until tests pass. When I need to understand why a logic path is failing at 3am before a stakeholder demo, Claude Code performs what I call <strong>Trace-based Hypotheses</strong> — reading the code, forming a theory about what's wrong, testing it, and revising until the system is sound. It also monitors CI pipelines on GitHub and GitLab and can commit fixes automatically.</p>
+
+    <h3>Layer 5 — The Hardening IDEs: Cursor and Windsurf</h3>
+    <p>Finally, I bring the code into <strong>Cursor's Composer</strong> for the final audit. This is for cross-file refactoring, production-grade logic verification, and ensuring the AI didn't hallucinate a brittle architecture. Cursor's scale signals trust: $2 billion in annualized revenue, 2 million users, and adoption by half the Fortune 500.</p>
+    <p><strong>Windsurf's Cascade</strong> agent takes a different approach — repository-scale reasoning, persistent memory across sessions, and as of early 2026, parallel agent sessions that run multiple Cascade instances simultaneously on different parts of the codebase. For large, complex Experiencetypes, this is where I'd resolve deep architectural questions.</p>
+
+    <div class="post-callout">
+      <div class="post-callout-label">📡 Market Signal</div>
+      <p style="margin:0">The AI IDE market is consolidating rapidly. Windsurf was acquired by Cognition (makers of Devin, valued at $10.2B) for <strong>$250 million</strong> in July 2025. Cursor hit <strong>$2 billion ARR</strong> in February 2026 — making it one of the fastest-growing SaaS products in history. When strategic acquirers and enterprise budgets move this fast, the tools are no longer experimental.</p>
+    </div>
+
+    <!-- Section 4: Framework -->
+    <h2>The 7-Step Framework: Building with Deterministic Intent</h2>
+
+    <p>Speed without structure is chaos. The discipline I apply is what I call <strong>Deterministic Intent</strong> — ensuring every vibe has a verifiable, testable outcome before it becomes code. Here's the first-principles framework I run for every Experiencetype build.</p>
+
+    <ol>
+      <h3><li>Objective: Collapse the "Ideation-to-Interaction" Window</li></h3>
+      <p>My goal is to move from a concept to a functional, hosted URL in hours, not sprints. The time target depends on complexity — minutes for a UI mock, hours for a functional prototype, days for an MVP. The key constraint: if I can't interact with it before writing a PRD, I haven't validated it.</p>
+
+      <h3><li>Users: Identify Who Interacts with the Experiencetype</li></h3>
+      <p>Primarily me (for validation), stakeholders (for buy-in), and early testers (for structured feedback). The Experiencetype is not a product — it's a question made interactive. I define upfront what question it's answering and who needs to answer it.</p>
+
+      <h3><li>Superpowers: Leverage Agentic CLIs and Cloud-Native Scaffolding</li></h3>
+      <p>My superpower is the ability to use Claude Code to understand a codebase and Replit Agent to deploy it instantly. The combination of a reasoning agent (understanding) and an orchestration agent (building) compresses what used to take a full sprint into a single afternoon.</p>
+
+      <h3><li>Vision: The Death of the Static Spec</li></h3>
+      <p>In its place: the Experiencetype. A prototype that executes logic, handles real data, and breaks in predictable ways — proving the "vibe" is technically sound before it ever hits a production roadmap. The Experiencetype is my PRD.</p>
+
+      <h3><li>Pillars: Three Non-Negotiables</li></h3>
+      <ul>
+        <li><strong>Prompt-as-Code:</strong> Natural language is my high-level programming language. Every prompt is a specification. Precision in language is the only thing that prevents technical debt in vibe coding.</li>
+        <li><strong>Infrastructure-on-Demand:</strong> Database provisioning, authentication, and API routes are part of the initial prompt — not afterthoughts. With Lovable + Supabase, the data layer is included by default.</li>
+        <li><strong>Deterministic Hardening:</strong> Using Claude Code and Cursor to turn a "vibe" into production-grade, verifiable logic. Every feature gets a test. If I can't write a test for it, I don't ship it.</li>
+      </ul>
+
+      <h3><li>Impact: Elimination of Opportunity Cost</li></h3>
+      <p>By spending $20 in API tokens and 4 hours of my time, I prevent weeks of wasted engineering effort on a feature that wouldn't have worked. The ROI is found in the <strong>Certainty I provide to the business</strong> — not in the code I wrote.</p>
+
+      <h3><li>Roadmap: The 4-Hour Build Sequence</li></h3>
+      <p>This is how a typical Experiencetype build flows:</p>
+    </ol>
+
+    <div class="timeline-grid">
+      <div class="timeline-block">
+        <div class="tl-label">Hour 1</div>
+        <div class="tl-title">Visual Instantiation</div>
+        <div class="tl-tools">v0 · Lovable</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-label">Hour 2</div>
+        <div class="tl-title">Logic &amp; Data Scaffolding</div>
+        <div class="tl-tools">Replit Agent · Bolt</div>
+      </div>
+      <div class="timeline-block">
+        <div class="tl-label">Hours 3–4</div>
+        <div class="tl-title">Technical Audit &amp; Hardening</div>
+        <div class="tl-tools">Claude Code · Cursor</div>
+      </div>
+    </div>
+
+    <!-- Section 5: Adoption Data -->
+    <h2>Adoption Reality Check: What the Data Actually Says</h2>
+
+    <p>The productivity claims around AI-assisted coding are real — but they require careful interpretation. Not all gains are equal, and the honest picture includes both the upside and the paradoxes.</p>
+
+    <table class="post-table">
+      <thead>
+        <tr>
+          <th>Stat</th>
+          <th>Source</th>
+          <th>What It Actually Means</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>55% faster task completion</td>
+          <td>GitHub Copilot controlled study</td>
+          <td>For isolated, well-defined coding tasks (1h 11m vs. 2h 41m). Not full development cycles.</td>
+        </tr>
+        <tr>
+          <td>46% reduction in routine coding time</td>
+          <td>McKinsey, Feb 2026 (150 enterprises)</td>
+          <td>Also: 35% shorter code review cycles. Gains are real at task level; organizational gains require process changes too.</td>
+        </tr>
+        <tr>
+          <td>26.9% of all production code is AI-written</td>
+          <td>4.2M developers tracked, Nov 2025–Feb 2026</td>
+          <td>Daily AI users see nearly a third of their merged code written by AI. Adoption is structural, not experimental.</td>
+        </tr>
+        <tr>
+          <td>46% of new code is AI-generated</td>
+          <td>GitHub, 2025</td>
+          <td>Represents new code written in AI-assisted sessions, not just completions.</td>
+        </tr>
+        <tr>
+          <td>19% slower for experienced devs</td>
+          <td>METR study, July 2025</td>
+          <td>For experienced open-source developers on complex, open-ended tasks. AI tools have improved since early 2025; this measures the state of tools at the time of study.</td>
+        </tr>
+        <tr>
+          <td>90% of developers use AI tools regularly</td>
+          <td>Stack Overflow Developer Survey, Jan 2026</td>
+          <td>92% of US developers use AI coding tools daily. Adoption is effectively universal.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The key takeaway: AI coding tools deliver <strong>massive gains on scoped, well-defined tasks</strong> — exactly the kind of work in a Experiencetype build. For complex, open-ended architectural work, the gains are smaller and the human judgment layer remains critical. This isn't a reason to use AI less — it's a reason to structure your prompts more precisely.</p>
+
+    <!-- Section 6: Failure Modes -->
+    <h2>Failure Modes: Avoiding the "Vibe" Trap</h2>
+
+    <p>Speed without structure is just chaos. As a lead PM, I've identified four specific anti-patterns that collapse Experiencetype velocity into technical debt. Each one is a failure of discipline, not a failure of tools.</p>
+
+    <div class="post-callout-warning">
+      <div class="post-callout-label">⚠️ Failure Mode 1: The One-Man Feature Factory</div>
+      <p style="margin:0">Just because you <em>can</em> build a tool in an hour doesn't mean it <em>should</em> exist. The seduction of vibe coding is volume — spinning up three new Experiencetypes in an afternoon feels like productivity. It isn't. Every Experiencetype must be tethered to a specific, measurable question the business needs answered. Build to validate, not to impress.</p>
+    </div>
+
+    <div class="post-callout-warning">
+      <div class="post-callout-label">⚠️ Failure Mode 2: Hallucination Debt</div>
+      <p style="margin:0">Relying on the AI to "figure out the logic" without verification creates <strong>Hallucination Debt</strong> — code that looks correct, passes a surface review, and silently fails at runtime. Every vibe must be verified with an eval. The rule: if you can't write a test for it, don't ship it. A large-scale scan of 5,600 publicly deployed vibe-coded apps found <strong>2,000 critical vulnerabilities and 400 exposed API keys and tokens</strong>. Hardening is not optional.</p>
+    </div>
+
+    <div class="post-callout-warning">
+      <div class="post-callout-label">⚠️ Failure Mode 3: The Agentic Loop</div>
+      <p style="margin:0">Letting Claude Code and Cursor work on the same files simultaneously creates "Code Churn" — the agents overwrite each other's changes, reverting validated logic and introducing regressions. You must act as the <strong>State Manager</strong>: lock down core logic once the vibe is validated, then bring in the hardening layer. One agent at a time, one scope at a time.</p>
+    </div>
+
+    <div class="post-callout-warning">
+      <div class="post-callout-label">⚠️ Failure Mode 4: Semantic Drift</div>
+      <p style="margin:0">When prompts get lazier, the code gets sloppier. "Make it better" is not a prompt — it's an abdication of intent. Precision in language is the only thing that prevents technical debt in vibe coding. As a build matures, I rewrite prompts to be increasingly specific: from "build a search bar" to "build a debounced search input that queries the Supabase full-text search index on the `products` table, returns results in under 200ms, and shows a skeleton loader during fetch."</p>
+    </div>
+
+    <!-- Section 7: Metrics -->
+    <h2>Success Metrics: The New PM Scorecard</h2>
+
+    <p>Traditional PM scorecards measure output. The Vibe Coding PM scorecard measures <strong>speed of certainty</strong> — how fast can I move from hypothesis to validated answer? Here's how I track my own velocity, with targets grounded in what the data actually supports:</p>
+
+    <table class="post-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Definition</th>
+          <th>Realistic 2026 Target</th>
+          <th>Why This Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Concept-to-URL Latency</td>
+          <td>Time from "Idea" to a functional, hosted prototype URL</td>
+          <td>&lt; 4 hours (simple apps); &lt; 3 days (MVPs)</td>
+          <td>Consistent with reported tool capabilities; MVPs validated by YC founders at "days not weeks"</td>
+        </tr>
+        <tr>
+          <td>AI Code Share %</td>
+          <td>% of merged code in Experiencetypes written by AI agents</td>
+          <td>&gt; 50%</td>
+          <td>Consistent with GitHub's reported 46% of new code being AI-generated; 27% across all production code</td>
+        </tr>
+        <tr>
+          <td>P99 Inference Latency</td>
+          <td>Speed of AI logic within Experiencetypes at the 99th percentile</td>
+          <td>&lt; 300ms (leading models)</td>
+          <td>Achieved by Gemini 3 at benchmark P99; P95 at 150ms. Model-specific — qualify per deployment.</td>
+        </tr>
+        <tr>
+          <td>Strategic Validation Rate</td>
+          <td>% of Experiencetypes that correctly identify a "No-Go" before engineering investment</td>
+          <td>&gt; 60%</td>
+          <td>A high kill rate is a sign of disciplined prioritization, not failure. Most ideas shouldn't ship.</td>
+        </tr>
+        <tr>
+          <td>Security Review Rate</td>
+          <td>% of Experiencetypes that pass an automated vulnerability scan before stakeholder demo</td>
+          <td>100%</td>
+          <td>Given 45% of AI-generated code contains OWASP Top-10 vulns (Veracode, 2025), this is non-negotiable.</td>
+        </tr>
+        <tr>
+          <td>Semantic Density</td>
+          <td>Ratio of "Intent Words" (prompt characters) to "Functional Lines of Code" generated</td>
+          <td>1:50 or higher</td>
+          <td>A measure of prompt precision. Higher density means more functional output per unit of human intent.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Notice what's absent: story points, velocity, burn-down charts. Those metrics measure the cost of building. These metrics measure the value of knowing — which is the actual job of a PM in 2026.</p>
+
+    <!-- Section 8: Conclusion -->
+    <h2>Instantiation as a Core Competency</h2>
+
+    <p>Karpathy's original definition was provocative for a reason: <em>"forget that the code even exists."</em> He wasn't advocating for carelessness — he was identifying a new cognitive mode. The vibe coder doesn't think in functions and classes; they think in outcomes and systems. The code is a residue of intent, not the intent itself.</p>
+
+    <p>For me, vibe coding is not a trend to adopt or a skill to add to a resume. It is a structural change in how I prove value. The old model: PM writes spec → waits → reviews → adjusts → ships. The new model: PM identifies question → instantiates Experiencetype → validates → kills or invests. The delta is measured in weeks reclaimed per quarter, engineering cycles saved, and stakeholder trust earned through interactive proof rather than slide decks.</p>
+
+    <p>The agents are ready. The stack is mature. The only remaining variable is the precision of your intent. In 2026, the PM who can vibe with deterministic clarity — who can move from a napkin idea to a functional URL in an afternoon, then harden it with rigorous evals before it touches production — is not just productive. They are <strong>irreplaceable</strong>.</p>
+
+    <p>The terminal is open. Let's build.</p>
+
+    <hr style="margin:3rem 0;border-color:var(--c-border)">
+    <div style="display:flex;align-items:center;gap:1rem">
+      <img src="../img/profile.png" alt="Sourav Verma" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--c-border)">
+      <div>
+        <div style="font-weight:700;font-size:0.9rem">Sourav Verma</div>
+        <div style="font-size:0.8rem;color:var(--c-muted)">Product Manager — AI &amp; New Initiatives at Visit Health · <a href="../index.html" style="color:var(--c-primary)">Portfolio</a></div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<footer style="background:var(--c-hero);padding:2rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.07)">
+  <a href="../blog.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;display:inline-flex;align-items:center;gap:6px">
+    <i class="fas fa-arrow-left"></i> Back to Blog
+  </a>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+</body>
+</html>
